@@ -1,0 +1,548 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA5ABB9F16EDCF74009E6E53 /* mc.png in Resources */ = {isa = PBXBuildFile; fileRef = DA5ABB9E16EDCF74009E6E53 /* mc.png */; };
+		DA8C0CF116D895B900A6942E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8C0CF016D895B900A6942E /* UIKit.framework */; };
+		DA8C0CF316D895B900A6942E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8C0CF216D895B900A6942E /* Foundation.framework */; };
+		DA8C0CF516D895B900A6942E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8C0CF416D895B900A6942E /* CoreGraphics.framework */; };
+		DA8C0CFB16D895B900A6942E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0CF916D895B900A6942E /* InfoPlist.strings */; };
+		DA8C0CFD16D895B900A6942E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C0CFC16D895B900A6942E /* main.m */; };
+		DA8C0D0116D895B900A6942E /* RGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C0D0016D895B900A6942E /* RGAppDelegate.m */; };
+		DA8C0D0316D895B900A6942E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D0216D895B900A6942E /* Default.png */; };
+		DA8C0D0516D895B900A6942E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D0416D895B900A6942E /* Default@2x.png */; };
+		DA8C0D0716D895B900A6942E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D0616D895B900A6942E /* Default-568h@2x.png */; };
+		DA8C0D0A16D895B900A6942E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D0816D895B900A6942E /* MainStoryboard.storyboard */; };
+		DA8C0D0F16D895B900A6942E /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D0E16D895B900A6942E /* first.png */; };
+		DA8C0D1116D895B900A6942E /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D1016D895B900A6942E /* first@2x.png */; };
+		DA8C0D1616D895B900A6942E /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D1516D895B900A6942E /* second.png */; };
+		DA8C0D1816D895B900A6942E /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D1716D895B900A6942E /* second@2x.png */; };
+		DA8C0D2516D89FAF00A6942E /* RGListeningController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C0D2416D89FAF00A6942E /* RGListeningController.m */; };
+		DA8C0D3216DE624800A6942E /* C_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3116DE624800A6942E /* C_chord.wav */; };
+		DA8C0D3416DE65E300A6942E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8C0D3316DE65E300A6942E /* AVFoundation.framework */; };
+		DA8C0D3F16DF301F00A6942E /* Am_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3916DF301F00A6942E /* Am_chord.wav */; };
+		DA8C0D4016DF301F00A6942E /* D_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3A16DF301F00A6942E /* D_chord.wav */; };
+		DA8C0D4116DF301F00A6942E /* Dm_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3B16DF301F00A6942E /* Dm_chord.wav */; };
+		DA8C0D4216DF301F00A6942E /* Em_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3C16DF301F00A6942E /* Em_chord.wav */; };
+		DA8C0D4316DF301F00A6942E /* F_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3D16DF301F00A6942E /* F_chord.wav */; };
+		DA8C0D4416DF301F00A6942E /* G_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3E16DF301F00A6942E /* G_chord.wav */; };
+		DA8C0D4716DF3B3F00A6942E /* RGTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C0D4616DF3B3F00A6942E /* RGTestController.m */; };
+		DA8C0D4916E0AC9300A6942E /* chords_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D4816E0AC9300A6942E /* chords_data.plist */; };
+		DA8C0D5416E1F1EE00A6942E /* RGPrepareTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C0D5316E1F1ED00A6942E /* RGPrepareTestController.m */; };
+		DA8C0D5816E327F300A6942E /* C_F_C_F_C.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D5616E327F300A6942E /* C_F_C_F_C.wav */; };
+		DA8C0D5916E327F300A6942E /* C_G_C_G_C.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D5716E327F300A6942E /* C_G_C_G_C.wav */; };
+		DA8C0D7316E7427C00A6942E /* Am_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D5B16E7427B00A6942E /* Am_chord.mp3 */; };
+		DA8C0D7416E7427C00A6942E /* C_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D5C16E7427B00A6942E /* C_chord.mp3 */; };
+		DA8C0D7516E7427C00A6942E /* D_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D5D16E7427B00A6942E /* D_chord.mp3 */; };
+		DA8C0D7616E7427C00A6942E /* Dm_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D5E16E7427B00A6942E /* Dm_chord.mp3 */; };
+		DA8C0D7716E7427C00A6942E /* Em_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D5F16E7427B00A6942E /* Em_chord.mp3 */; };
+		DA8C0D7816E7427C00A6942E /* F_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6016E7427B00A6942E /* F_chord.mp3 */; };
+		DA8C0D7916E7427C00A6942E /* G_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6116E7427B00A6942E /* G_chord.mp3 */; };
+		DA8C0D7A16E7427C00A6942E /* C_Am_F_G_C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6316E7427C00A6942E /* C_Am_F_G_C.mp3 */; };
+		DA8C0D7B16E7427C00A6942E /* C_C_F_G_C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6416E7427C00A6942E /* C_C_F_G_C.mp3 */; };
+		DA8C0D7C16E7427C00A6942E /* C_Em_Dm_G_C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6516E7427C00A6942E /* C_Em_Dm_G_C.mp3 */; };
+		DA8C0D7D16E7427C00A6942E /* C_F_G_G_C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6616E7427C00A6942E /* C_F_G_G_C.mp3 */; };
+		DA8C0D7E16E7427C00A6942E /* Am_C_Am_C_Am.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6816E7427C00A6942E /* Am_C_Am_C_Am.mp3 */; };
+		DA8C0D7F16E7427C00A6942E /* Am_Dm_Am_Dm_Am.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6916E7427C00A6942E /* Am_Dm_Am_Dm_Am.mp3 */; };
+		DA8C0D8016E7427C00A6942E /* Am_Em_Am_Em_Am.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6A16E7427C00A6942E /* Am_Em_Am_Em_Am.mp3 */; };
+		DA8C0D8116E7427C00A6942E /* Am_F_Am_F_Am.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6B16E7427C00A6942E /* Am_F_Am_F_Am.mp3 */; };
+		DA8C0D8216E7427C00A6942E /* Am_G_Am_G_Am.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6C16E7427C00A6942E /* Am_G_Am_G_Am.mp3 */; };
+		DA8C0D8316E7427C00A6942E /* C_Am_C_Am_C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6E16E7427C00A6942E /* C_Am_C_Am_C.mp3 */; };
+		DA8C0D8416E7427C00A6942E /* C_Dm_C_Dm_C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D6F16E7427C00A6942E /* C_Dm_C_Dm_C.mp3 */; };
+		DA8C0D8516E7427C00A6942E /* C_Em_C_Em_C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D7016E7427C00A6942E /* C_Em_C_Em_C.mp3 */; };
+		DA8C0D8616E7427D00A6942E /* C_F_C_F_C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D7116E7427C00A6942E /* C_F_C_F_C.mp3 */; };
+		DA8C0D8716E7427D00A6942E /* C_G_C_G_C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D7216E7427C00A6942E /* C_G_C_G_C.mp3 */; };
+		DA8C0D8A16E9EA6C00A6942E /* RGFinishTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C0D8916E9EA6B00A6942E /* RGFinishTestController.m */; };
+		DA8C0D8D16EB002100A6942E /* RGQuester.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C0D8C16EB002000A6942E /* RGQuester.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DA5ABB9E16EDCF74009E6E53 /* mc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mc.png; sourceTree = "<group>"; };
+		DA8C0CEC16D895B900A6942E /* ChordApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA8C0CF016D895B900A6942E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DA8C0CF216D895B900A6942E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DA8C0CF416D895B900A6942E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DA8C0CF816D895B900A6942E /* ChordApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChordApp-Info.plist"; sourceTree = "<group>"; };
+		DA8C0CFA16D895B900A6942E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DA8C0CFC16D895B900A6942E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA8C0CFE16D895B900A6942E /* ChordApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChordApp-Prefix.pch"; sourceTree = "<group>"; };
+		DA8C0CFF16D895B900A6942E /* RGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGAppDelegate.h; sourceTree = "<group>"; };
+		DA8C0D0016D895B900A6942E /* RGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RGAppDelegate.m; sourceTree = "<group>"; };
+		DA8C0D0216D895B900A6942E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		DA8C0D0416D895B900A6942E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		DA8C0D0616D895B900A6942E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DA8C0D0916D895B900A6942E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		DA8C0D0E16D895B900A6942E /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		DA8C0D1016D895B900A6942E /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		DA8C0D1516D895B900A6942E /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		DA8C0D1716D895B900A6942E /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		DA8C0D2316D89FAF00A6942E /* RGListeningController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGListeningController.h; sourceTree = "<group>"; };
+		DA8C0D2416D89FAF00A6942E /* RGListeningController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGListeningController.m; sourceTree = "<group>"; };
+		DA8C0D3116DE624800A6942E /* C_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = C_chord.wav; sourceTree = "<group>"; };
+		DA8C0D3316DE65E300A6942E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DA8C0D3916DF301F00A6942E /* Am_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Am_chord.wav; sourceTree = "<group>"; };
+		DA8C0D3A16DF301F00A6942E /* D_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = D_chord.wav; sourceTree = "<group>"; };
+		DA8C0D3B16DF301F00A6942E /* Dm_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Dm_chord.wav; sourceTree = "<group>"; };
+		DA8C0D3C16DF301F00A6942E /* Em_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Em_chord.wav; sourceTree = "<group>"; };
+		DA8C0D3D16DF301F00A6942E /* F_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = F_chord.wav; sourceTree = "<group>"; };
+		DA8C0D3E16DF301F00A6942E /* G_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = G_chord.wav; sourceTree = "<group>"; };
+		DA8C0D4516DF3B3E00A6942E /* RGTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGTestController.h; sourceTree = "<group>"; };
+		DA8C0D4616DF3B3F00A6942E /* RGTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGTestController.m; sourceTree = "<group>"; };
+		DA8C0D4816E0AC9300A6942E /* chords_data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = chords_data.plist; sourceTree = "<group>"; };
+		DA8C0D5216E1F1ED00A6942E /* RGPrepareTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGPrepareTestController.h; sourceTree = "<group>"; };
+		DA8C0D5316E1F1ED00A6942E /* RGPrepareTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGPrepareTestController.m; sourceTree = "<group>"; };
+		DA8C0D5616E327F300A6942E /* C_F_C_F_C.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = C_F_C_F_C.wav; sourceTree = "<group>"; };
+		DA8C0D5716E327F300A6942E /* C_G_C_G_C.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = C_G_C_G_C.wav; sourceTree = "<group>"; };
+		DA8C0D5B16E7427B00A6942E /* Am_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Am_chord.mp3; sourceTree = "<group>"; };
+		DA8C0D5C16E7427B00A6942E /* C_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C_chord.mp3; sourceTree = "<group>"; };
+		DA8C0D5D16E7427B00A6942E /* D_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = D_chord.mp3; sourceTree = "<group>"; };
+		DA8C0D5E16E7427B00A6942E /* Dm_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Dm_chord.mp3; sourceTree = "<group>"; };
+		DA8C0D5F16E7427B00A6942E /* Em_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Em_chord.mp3; sourceTree = "<group>"; };
+		DA8C0D6016E7427B00A6942E /* F_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = F_chord.mp3; sourceTree = "<group>"; };
+		DA8C0D6116E7427B00A6942E /* G_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = G_chord.mp3; sourceTree = "<group>"; };
+		DA8C0D6316E7427C00A6942E /* C_Am_F_G_C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C_Am_F_G_C.mp3; sourceTree = "<group>"; };
+		DA8C0D6416E7427C00A6942E /* C_C_F_G_C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C_C_F_G_C.mp3; sourceTree = "<group>"; };
+		DA8C0D6516E7427C00A6942E /* C_Em_Dm_G_C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C_Em_Dm_G_C.mp3; sourceTree = "<group>"; };
+		DA8C0D6616E7427C00A6942E /* C_F_G_G_C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C_F_G_G_C.mp3; sourceTree = "<group>"; };
+		DA8C0D6816E7427C00A6942E /* Am_C_Am_C_Am.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Am_C_Am_C_Am.mp3; sourceTree = "<group>"; };
+		DA8C0D6916E7427C00A6942E /* Am_Dm_Am_Dm_Am.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Am_Dm_Am_Dm_Am.mp3; sourceTree = "<group>"; };
+		DA8C0D6A16E7427C00A6942E /* Am_Em_Am_Em_Am.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Am_Em_Am_Em_Am.mp3; sourceTree = "<group>"; };
+		DA8C0D6B16E7427C00A6942E /* Am_F_Am_F_Am.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Am_F_Am_F_Am.mp3; sourceTree = "<group>"; };
+		DA8C0D6C16E7427C00A6942E /* Am_G_Am_G_Am.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Am_G_Am_G_Am.mp3; sourceTree = "<group>"; };
+		DA8C0D6E16E7427C00A6942E /* C_Am_C_Am_C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C_Am_C_Am_C.mp3; sourceTree = "<group>"; };
+		DA8C0D6F16E7427C00A6942E /* C_Dm_C_Dm_C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C_Dm_C_Dm_C.mp3; sourceTree = "<group>"; };
+		DA8C0D7016E7427C00A6942E /* C_Em_C_Em_C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C_Em_C_Em_C.mp3; sourceTree = "<group>"; };
+		DA8C0D7116E7427C00A6942E /* C_F_C_F_C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C_F_C_F_C.mp3; sourceTree = "<group>"; };
+		DA8C0D7216E7427C00A6942E /* C_G_C_G_C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C_G_C_G_C.mp3; sourceTree = "<group>"; };
+		DA8C0D8816E9EA6B00A6942E /* RGFinishTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGFinishTestController.h; sourceTree = "<group>"; };
+		DA8C0D8916E9EA6B00A6942E /* RGFinishTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGFinishTestController.m; sourceTree = "<group>"; };
+		DA8C0D8B16EB002000A6942E /* RGQuester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGQuester.h; sourceTree = "<group>"; };
+		DA8C0D8C16EB002000A6942E /* RGQuester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGQuester.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA8C0CE916D895B900A6942E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA8C0D3416DE65E300A6942E /* AVFoundation.framework in Frameworks */,
+				DA8C0CF116D895B900A6942E /* UIKit.framework in Frameworks */,
+				DA8C0CF316D895B900A6942E /* Foundation.framework in Frameworks */,
+				DA8C0CF516D895B900A6942E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA8C0CE116D895B900A6942E = {
+			isa = PBXGroup;
+			children = (
+				DA5ABB9E16EDCF74009E6E53 /* mc.png */,
+				DA8C0D3316DE65E300A6942E /* AVFoundation.framework */,
+				DA8C0CF616D895B900A6942E /* ChordApp */,
+				DA8C0CEF16D895B900A6942E /* Frameworks */,
+				DA8C0CED16D895B900A6942E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA8C0CED16D895B900A6942E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA8C0CEC16D895B900A6942E /* ChordApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA8C0CEF16D895B900A6942E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA8C0CF016D895B900A6942E /* UIKit.framework */,
+				DA8C0CF216D895B900A6942E /* Foundation.framework */,
+				DA8C0CF416D895B900A6942E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA8C0CF616D895B900A6942E /* ChordApp */ = {
+			isa = PBXGroup;
+			children = (
+				DA8C0D5A16E7427B00A6942E /* chords */,
+				DA8C0D6216E7427B00A6942E /* level3 */,
+				DA8C0D6716E7427C00A6942E /* level2 */,
+				DA8C0D6D16E7427C00A6942E /* level1 */,
+				DA8C0D5516E3277900A6942E /* music */,
+				DA8C0D2F16DE622800A6942E /* chords */,
+				DA8C0CFF16D895B900A6942E /* RGAppDelegate.h */,
+				DA8C0D0016D895B900A6942E /* RGAppDelegate.m */,
+				DA8C0D2316D89FAF00A6942E /* RGListeningController.h */,
+				DA8C0D2416D89FAF00A6942E /* RGListeningController.m */,
+				DA8C0D5216E1F1ED00A6942E /* RGPrepareTestController.h */,
+				DA8C0D5316E1F1ED00A6942E /* RGPrepareTestController.m */,
+				DA8C0D4516DF3B3E00A6942E /* RGTestController.h */,
+				DA8C0D4616DF3B3F00A6942E /* RGTestController.m */,
+				DA8C0D8816E9EA6B00A6942E /* RGFinishTestController.h */,
+				DA8C0D8916E9EA6B00A6942E /* RGFinishTestController.m */,
+				DA8C0D8B16EB002000A6942E /* RGQuester.h */,
+				DA8C0D8C16EB002000A6942E /* RGQuester.m */,
+				DA8C0D0816D895B900A6942E /* MainStoryboard.storyboard */,
+				DA8C0D0E16D895B900A6942E /* first.png */,
+				DA8C0D1016D895B900A6942E /* first@2x.png */,
+				DA8C0D1516D895B900A6942E /* second.png */,
+				DA8C0D1716D895B900A6942E /* second@2x.png */,
+				DA8C0CF716D895B900A6942E /* Supporting Files */,
+			);
+			path = ChordApp;
+			sourceTree = "<group>";
+		};
+		DA8C0CF716D895B900A6942E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA8C0D4816E0AC9300A6942E /* chords_data.plist */,
+				DA8C0CF816D895B900A6942E /* ChordApp-Info.plist */,
+				DA8C0CF916D895B900A6942E /* InfoPlist.strings */,
+				DA8C0CFC16D895B900A6942E /* main.m */,
+				DA8C0CFE16D895B900A6942E /* ChordApp-Prefix.pch */,
+				DA8C0D0216D895B900A6942E /* Default.png */,
+				DA8C0D0416D895B900A6942E /* Default@2x.png */,
+				DA8C0D0616D895B900A6942E /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA8C0D2F16DE622800A6942E /* chords */ = {
+			isa = PBXGroup;
+			children = (
+				DA8C0D3916DF301F00A6942E /* Am_chord.wav */,
+				DA8C0D3A16DF301F00A6942E /* D_chord.wav */,
+				DA8C0D3B16DF301F00A6942E /* Dm_chord.wav */,
+				DA8C0D3C16DF301F00A6942E /* Em_chord.wav */,
+				DA8C0D3D16DF301F00A6942E /* F_chord.wav */,
+				DA8C0D3E16DF301F00A6942E /* G_chord.wav */,
+				DA8C0D3116DE624800A6942E /* C_chord.wav */,
+			);
+			name = chords;
+			sourceTree = "<group>";
+		};
+		DA8C0D5516E3277900A6942E /* music */ = {
+			isa = PBXGroup;
+			children = (
+				DA8C0D5616E327F300A6942E /* C_F_C_F_C.wav */,
+				DA8C0D5716E327F300A6942E /* C_G_C_G_C.wav */,
+			);
+			name = music;
+			sourceTree = "<group>";
+		};
+		DA8C0D5A16E7427B00A6942E /* chords */ = {
+			isa = PBXGroup;
+			children = (
+				DA8C0D5B16E7427B00A6942E /* Am_chord.mp3 */,
+				DA8C0D5C16E7427B00A6942E /* C_chord.mp3 */,
+				DA8C0D5D16E7427B00A6942E /* D_chord.mp3 */,
+				DA8C0D5E16E7427B00A6942E /* Dm_chord.mp3 */,
+				DA8C0D5F16E7427B00A6942E /* Em_chord.mp3 */,
+				DA8C0D6016E7427B00A6942E /* F_chord.mp3 */,
+				DA8C0D6116E7427B00A6942E /* G_chord.mp3 */,
+			);
+			path = chords;
+			sourceTree = "<group>";
+		};
+		DA8C0D6216E7427B00A6942E /* level3 */ = {
+			isa = PBXGroup;
+			children = (
+				DA8C0D6316E7427C00A6942E /* C_Am_F_G_C.mp3 */,
+				DA8C0D6416E7427C00A6942E /* C_C_F_G_C.mp3 */,
+				DA8C0D6516E7427C00A6942E /* C_Em_Dm_G_C.mp3 */,
+				DA8C0D6616E7427C00A6942E /* C_F_G_G_C.mp3 */,
+			);
+			path = level3;
+			sourceTree = "<group>";
+		};
+		DA8C0D6716E7427C00A6942E /* level2 */ = {
+			isa = PBXGroup;
+			children = (
+				DA8C0D6816E7427C00A6942E /* Am_C_Am_C_Am.mp3 */,
+				DA8C0D6916E7427C00A6942E /* Am_Dm_Am_Dm_Am.mp3 */,
+				DA8C0D6A16E7427C00A6942E /* Am_Em_Am_Em_Am.mp3 */,
+				DA8C0D6B16E7427C00A6942E /* Am_F_Am_F_Am.mp3 */,
+				DA8C0D6C16E7427C00A6942E /* Am_G_Am_G_Am.mp3 */,
+			);
+			path = level2;
+			sourceTree = "<group>";
+		};
+		DA8C0D6D16E7427C00A6942E /* level1 */ = {
+			isa = PBXGroup;
+			children = (
+				DA8C0D6E16E7427C00A6942E /* C_Am_C_Am_C.mp3 */,
+				DA8C0D6F16E7427C00A6942E /* C_Dm_C_Dm_C.mp3 */,
+				DA8C0D7016E7427C00A6942E /* C_Em_C_Em_C.mp3 */,
+				DA8C0D7116E7427C00A6942E /* C_F_C_F_C.mp3 */,
+				DA8C0D7216E7427C00A6942E /* C_G_C_G_C.mp3 */,
+			);
+			path = level1;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA8C0CEB16D895B900A6942E /* ChordApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA8C0D1B16D895B900A6942E /* Build configuration list for PBXNativeTarget "ChordApp" */;
+			buildPhases = (
+				DA8C0CE816D895B900A6942E /* Sources */,
+				DA8C0CE916D895B900A6942E /* Frameworks */,
+				DA8C0CEA16D895B900A6942E /* Resources */,
+				DA5ABB9D16EDCB96009E6E53 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChordApp;
+			productName = ChordApp;
+			productReference = DA8C0CEC16D895B900A6942E /* ChordApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA8C0CE316D895B900A6942E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RG;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Zero;
+			};
+			buildConfigurationList = DA8C0CE616D895B900A6942E /* Build configuration list for PBXProject "ChordApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DA8C0CE116D895B900A6942E;
+			productRefGroup = DA8C0CED16D895B900A6942E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA8C0CEB16D895B900A6942E /* ChordApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA8C0CEA16D895B900A6942E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA8C0CFB16D895B900A6942E /* InfoPlist.strings in Resources */,
+				DA8C0D0316D895B900A6942E /* Default.png in Resources */,
+				DA8C0D0516D895B900A6942E /* Default@2x.png in Resources */,
+				DA8C0D0716D895B900A6942E /* Default-568h@2x.png in Resources */,
+				DA8C0D0A16D895B900A6942E /* MainStoryboard.storyboard in Resources */,
+				DA8C0D0F16D895B900A6942E /* first.png in Resources */,
+				DA8C0D1116D895B900A6942E /* first@2x.png in Resources */,
+				DA8C0D1616D895B900A6942E /* second.png in Resources */,
+				DA8C0D1816D895B900A6942E /* second@2x.png in Resources */,
+				DA8C0D3216DE624800A6942E /* C_chord.wav in Resources */,
+				DA8C0D3F16DF301F00A6942E /* Am_chord.wav in Resources */,
+				DA8C0D4016DF301F00A6942E /* D_chord.wav in Resources */,
+				DA8C0D4116DF301F00A6942E /* Dm_chord.wav in Resources */,
+				DA8C0D4216DF301F00A6942E /* Em_chord.wav in Resources */,
+				DA8C0D4316DF301F00A6942E /* F_chord.wav in Resources */,
+				DA8C0D4416DF301F00A6942E /* G_chord.wav in Resources */,
+				DA8C0D4916E0AC9300A6942E /* chords_data.plist in Resources */,
+				DA8C0D5816E327F300A6942E /* C_F_C_F_C.wav in Resources */,
+				DA8C0D5916E327F300A6942E /* C_G_C_G_C.wav in Resources */,
+				DA8C0D7316E7427C00A6942E /* Am_chord.mp3 in Resources */,
+				DA8C0D7416E7427C00A6942E /* C_chord.mp3 in Resources */,
+				DA8C0D7516E7427C00A6942E /* D_chord.mp3 in Resources */,
+				DA8C0D7616E7427C00A6942E /* Dm_chord.mp3 in Resources */,
+				DA8C0D7716E7427C00A6942E /* Em_chord.mp3 in Resources */,
+				DA8C0D7816E7427C00A6942E /* F_chord.mp3 in Resources */,
+				DA8C0D7916E7427C00A6942E /* G_chord.mp3 in Resources */,
+				DA8C0D7A16E7427C00A6942E /* C_Am_F_G_C.mp3 in Resources */,
+				DA8C0D7B16E7427C00A6942E /* C_C_F_G_C.mp3 in Resources */,
+				DA8C0D7C16E7427C00A6942E /* C_Em_Dm_G_C.mp3 in Resources */,
+				DA8C0D7D16E7427C00A6942E /* C_F_G_G_C.mp3 in Resources */,
+				DA8C0D7E16E7427C00A6942E /* Am_C_Am_C_Am.mp3 in Resources */,
+				DA8C0D7F16E7427C00A6942E /* Am_Dm_Am_Dm_Am.mp3 in Resources */,
+				DA8C0D8016E7427C00A6942E /* Am_Em_Am_Em_Am.mp3 in Resources */,
+				DA8C0D8116E7427C00A6942E /* Am_F_Am_F_Am.mp3 in Resources */,
+				DA8C0D8216E7427C00A6942E /* Am_G_Am_G_Am.mp3 in Resources */,
+				DA8C0D8316E7427C00A6942E /* C_Am_C_Am_C.mp3 in Resources */,
+				DA8C0D8416E7427C00A6942E /* C_Dm_C_Dm_C.mp3 in Resources */,
+				DA8C0D8516E7427C00A6942E /* C_Em_C_Em_C.mp3 in Resources */,
+				DA8C0D8616E7427D00A6942E /* C_F_C_F_C.mp3 in Resources */,
+				DA8C0D8716E7427D00A6942E /* C_G_C_G_C.mp3 in Resources */,
+				DA5ABB9F16EDCF74009E6E53 /* mc.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DA5ABB9D16EDCB96009E6E53 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA8C0CE816D895B900A6942E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA8C0CFD16D895B900A6942E /* main.m in Sources */,
+				DA8C0D0116D895B900A6942E /* RGAppDelegate.m in Sources */,
+				DA8C0D2516D89FAF00A6942E /* RGListeningController.m in Sources */,
+				DA8C0D4716DF3B3F00A6942E /* RGTestController.m in Sources */,
+				DA8C0D5416E1F1EE00A6942E /* RGPrepareTestController.m in Sources */,
+				DA8C0D8A16E9EA6C00A6942E /* RGFinishTestController.m in Sources */,
+				DA8C0D8D16EB002100A6942E /* RGQuester.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DA8C0CF916D895B900A6942E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA8C0CFA16D895B900A6942E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DA8C0D0816D895B900A6942E /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA8C0D0916D895B900A6942E /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA8C0D1916D895B900A6942E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DA8C0D1A16D895B900A6942E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA8C0D1C16D895B900A6942E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChordApp/ChordApp-Prefix.pch";
+				INFOPLIST_FILE = "ChordApp/ChordApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DA8C0D1D16D895B900A6942E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChordApp/ChordApp-Prefix.pch";
+				INFOPLIST_FILE = "ChordApp/ChordApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA8C0CE616D895B900A6942E /* Build configuration list for PBXProject "ChordApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA8C0D1916D895B900A6942E /* Debug */,
+				DA8C0D1A16D895B900A6942E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA8C0D1B16D895B900A6942E /* Build configuration list for PBXNativeTarget "ChordApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA8C0D1C16D895B900A6942E /* Debug */,
+				DA8C0D1D16D895B900A6942E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA8C0CE316D895B900A6942E /* Project object */;
+}
