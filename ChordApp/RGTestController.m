@@ -8,19 +8,17 @@
 
 #import "RGTestController.h"
 #import "RGQuester.h"
+#import "RGPlayerController.h"
 
 @interface RGTestController () {
-    AVAudioPlayer *_player;
     NSString *_musicType;
     //
     RGQuester *_quester;
+    //
+    RGPlayerController *_pc;
 }
 
 @property (weak, nonatomic) UIViewController *delegate;
-
-- (void)playCurrentMusic;
-
-- (void)setupPlayer;
 
 - (void)setupAnswerButtons;
 
@@ -57,10 +55,12 @@
     self.isCorrectLabel.hidden = YES;
     
     [self setupAnswerButtons];
-    [self setupPlayer];
-    [self playCurrentMusic];
     
-    
+    // get playercontroller
+    _pc = [RGPlayerController sharedPlayerController];
+    // setup and play
+    [_pc setupCurrentPlayerByMusic:_quester.currentMusic];
+    [_pc playCurrentMusic];
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,6 +87,9 @@
         [[[UIAlertView alloc] initWithTitle:@"请选择答案" message:nil delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
         return;
     }
+    
+    // stop music
+    [_pc stopCurrentMusic];
     
     // if it's the end of the text
     if (_quester.currentQuestNum + 1 == _quester.questSum) {
@@ -134,18 +137,19 @@
             
         } completion:^(BOOL finished) {
             // play music
-            [self setupPlayer];
-            [self playCurrentMusic];
+            [_pc setupCurrentPlayerByMusic:_quester.currentMusic];
+            [_pc playCurrentMusic];
         }];
     }];
     
 }
 
 - (IBAction)repaly:(id)sender {
-    [self playCurrentMusic];
+    [_pc playCurrentMusic];
 }
 
 - (IBAction)cancleTest:(id)sender {
+    [_pc stopCurrentMusic];
     if (self.delegate) {
         [self.delegate dismissViewControllerAnimated:YES completion:nil];
     }
@@ -153,7 +157,7 @@
 
 - (void)selectAnswer:(id)sender {
     // stop music
-    [_player stop];
+    [_pc stopCurrentMusic];
     // set token
     _quester.haveAnswered = YES;
     
@@ -177,33 +181,6 @@
 }
 
 #pragma mark - privated methods
-
-- (void)playCurrentMusic {
-    if (_player == nil) {
-        // alert or something
-        NSLog(@"no music here");
-        return;
-    }
-    
-//    NSLog(@"is the music playing: %d", _player.playing);
-    if (_player.playing ) {
-    
-        [_player stop];
-    }
-    
-    // play music
-    [_player setCurrentTime:0];
-    [_player play];
-}
-
-- (void)setupPlayer {
-    NSString *musicPath = [[NSBundle mainBundle] pathForResource:_quester.currentMusic ofType:_musicType];
-    NSURL *musicUrl = [[NSURL alloc] initFileURLWithPath:musicPath];
-    _player = [[AVAudioPlayer alloc] initWithContentsOfURL:musicUrl error:nil];
-    _player.volume = 1;
-    
-    NSLog(@"%@", musicUrl);
-}
 
 - (void)setupAnswerButtons {
     // get answer array and set answer buttons

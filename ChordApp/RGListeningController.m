@@ -7,8 +7,12 @@
 //
 
 #import "RGListeningController.h"
+#import "RGPlayerController.h"
 
-@interface RGListeningController ()
+@interface RGListeningController () {
+    RGPlayerController *_pc;
+}
+
 
 
 @end
@@ -28,6 +32,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    _pc = [RGPlayerController sharedPlayerController];
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,28 +42,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 // ibactions
 - (void)playChord:(UIButton*)sender {
-    // playing chord code
+    // stop playing music
+    [_pc stopCurrentMusic];
+    
+    // get the name of the selected chord
     NSString *selectedChord = sender.titleLabel.text;
-    //text
-    NSLog(@"You select %@ chord...", selectedChord);
-    
-//    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-    
-    NSString *fileName = [NSString stringWithFormat:@"%@_chord", selectedChord];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"wav"];
-    NSURL *fileUrl = [[NSURL alloc] initFileURLWithPath:filePath];
-    NSLog(@"%@", fileUrl);
-    
-    NSError *playErr;
-    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:fileUrl error:&playErr];
-//    [self.player prepareToPlay];
-    self.player.volume = 1;
-//    [self.player prepareToPlay];
-    [self.player play];
-//    [self.player stop];
-    NSLog(@"%@", playErr);
+    NSString *musicName = [NSString stringWithFormat:@"%@_chord", selectedChord];
+    // play
+    [_pc setupCurrentPlayerByMusic:musicName];
+    [_pc playCurrentMusic];
 }
 
 @end

@@ -70,7 +70,6 @@
     NSMutableArray *level1Music = [[NSMutableArray alloc] initWithArray:[_data objectForKey:@"chords_1"]];
     NSMutableArray *level2Music = [[NSMutableArray alloc] initWithArray:[_data objectForKey:@"chords_2"]];
     NSMutableArray *level3Music = [[NSMutableArray alloc] initWithArray:[_data objectForKey:@"chords_3"]];
-    NSLog(@"level1music: %@", level1Music);
     
     for (int i = 0; i < level1; i++) {
         int randomNum = arc4random() % [level1Music count];
@@ -92,8 +91,6 @@
         [_questMusic addObject:chord];
         [level3Music removeObject:chord];
     }
-    
-//    NSLog(@"_questMusic: %@", _questMusic);
 }
 
 - (void)setupAQuest {
@@ -105,7 +102,6 @@
 
 - (void)setupQuestion {
     _currentChord = [_questMusic objectAtIndex:_currentQuestNum];
-//    NSLog(@"%@", _currentChord);
     self.currentMusic = [_currentChord objectForKey:@"name"];
 }
 
@@ -129,7 +125,6 @@
     // set correct answer if not exist
     if (!isSetTheCorrect) {
         [answer4Buttons setObject:self.currentMusic atIndexedSubscript:(arc4random()%4)];
-        NSLog(@"Now we set the correct answer.");
     }
     
     self.answers4Button = answer4Buttons;

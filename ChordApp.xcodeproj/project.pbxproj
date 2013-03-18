@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA5ABB9F16EDCF74009E6E53 /* mc.png in Resources */ = {isa = PBXBuildFile; fileRef = DA5ABB9E16EDCF74009E6E53 /* mc.png */; };
+		DA73C4BF16F3F74F00D7F757 /* RGPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA73C4BE16F3F74F00D7F757 /* RGPlayerController.m */; };
 		DA8C0CF116D895B900A6942E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8C0CF016D895B900A6942E /* UIKit.framework */; };
 		DA8C0CF316D895B900A6942E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8C0CF216D895B900A6942E /* Foundation.framework */; };
 		DA8C0CF516D895B900A6942E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8C0CF416D895B900A6942E /* CoreGraphics.framework */; };
@@ -23,19 +24,10 @@
 		DA8C0D1616D895B900A6942E /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D1516D895B900A6942E /* second.png */; };
 		DA8C0D1816D895B900A6942E /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D1716D895B900A6942E /* second@2x.png */; };
 		DA8C0D2516D89FAF00A6942E /* RGListeningController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C0D2416D89FAF00A6942E /* RGListeningController.m */; };
-		DA8C0D3216DE624800A6942E /* C_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3116DE624800A6942E /* C_chord.wav */; };
 		DA8C0D3416DE65E300A6942E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8C0D3316DE65E300A6942E /* AVFoundation.framework */; };
-		DA8C0D3F16DF301F00A6942E /* Am_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3916DF301F00A6942E /* Am_chord.wav */; };
-		DA8C0D4016DF301F00A6942E /* D_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3A16DF301F00A6942E /* D_chord.wav */; };
-		DA8C0D4116DF301F00A6942E /* Dm_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3B16DF301F00A6942E /* Dm_chord.wav */; };
-		DA8C0D4216DF301F00A6942E /* Em_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3C16DF301F00A6942E /* Em_chord.wav */; };
-		DA8C0D4316DF301F00A6942E /* F_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3D16DF301F00A6942E /* F_chord.wav */; };
-		DA8C0D4416DF301F00A6942E /* G_chord.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D3E16DF301F00A6942E /* G_chord.wav */; };
 		DA8C0D4716DF3B3F00A6942E /* RGTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C0D4616DF3B3F00A6942E /* RGTestController.m */; };
 		DA8C0D4916E0AC9300A6942E /* chords_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D4816E0AC9300A6942E /* chords_data.plist */; };
 		DA8C0D5416E1F1EE00A6942E /* RGPrepareTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C0D5316E1F1ED00A6942E /* RGPrepareTestController.m */; };
-		DA8C0D5816E327F300A6942E /* C_F_C_F_C.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D5616E327F300A6942E /* C_F_C_F_C.wav */; };
-		DA8C0D5916E327F300A6942E /* C_G_C_G_C.wav in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D5716E327F300A6942E /* C_G_C_G_C.wav */; };
 		DA8C0D7316E7427C00A6942E /* Am_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D5B16E7427B00A6942E /* Am_chord.mp3 */; };
 		DA8C0D7416E7427C00A6942E /* C_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D5C16E7427B00A6942E /* C_chord.mp3 */; };
 		DA8C0D7516E7427C00A6942E /* D_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D5D16E7427B00A6942E /* D_chord.mp3 */; };
@@ -63,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		DA5ABB9E16EDCF74009E6E53 /* mc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mc.png; sourceTree = "<group>"; };
+		DA73C4BD16F3F74F00D7F757 /* RGPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGPlayerController.h; sourceTree = "<group>"; };
+		DA73C4BE16F3F74F00D7F757 /* RGPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGPlayerController.m; sourceTree = "<group>"; };
 		DA8C0CEC16D895B900A6942E /* ChordApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8C0CF016D895B900A6942E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA8C0CF216D895B900A6942E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -83,21 +77,12 @@
 		DA8C0D1716D895B900A6942E /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		DA8C0D2316D89FAF00A6942E /* RGListeningController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGListeningController.h; sourceTree = "<group>"; };
 		DA8C0D2416D89FAF00A6942E /* RGListeningController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGListeningController.m; sourceTree = "<group>"; };
-		DA8C0D3116DE624800A6942E /* C_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = C_chord.wav; sourceTree = "<group>"; };
 		DA8C0D3316DE65E300A6942E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		DA8C0D3916DF301F00A6942E /* Am_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Am_chord.wav; sourceTree = "<group>"; };
-		DA8C0D3A16DF301F00A6942E /* D_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = D_chord.wav; sourceTree = "<group>"; };
-		DA8C0D3B16DF301F00A6942E /* Dm_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Dm_chord.wav; sourceTree = "<group>"; };
-		DA8C0D3C16DF301F00A6942E /* Em_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Em_chord.wav; sourceTree = "<group>"; };
-		DA8C0D3D16DF301F00A6942E /* F_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = F_chord.wav; sourceTree = "<group>"; };
-		DA8C0D3E16DF301F00A6942E /* G_chord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = G_chord.wav; sourceTree = "<group>"; };
 		DA8C0D4516DF3B3E00A6942E /* RGTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGTestController.h; sourceTree = "<group>"; };
 		DA8C0D4616DF3B3F00A6942E /* RGTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGTestController.m; sourceTree = "<group>"; };
 		DA8C0D4816E0AC9300A6942E /* chords_data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = chords_data.plist; sourceTree = "<group>"; };
 		DA8C0D5216E1F1ED00A6942E /* RGPrepareTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGPrepareTestController.h; sourceTree = "<group>"; };
 		DA8C0D5316E1F1ED00A6942E /* RGPrepareTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGPrepareTestController.m; sourceTree = "<group>"; };
-		DA8C0D5616E327F300A6942E /* C_F_C_F_C.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = C_F_C_F_C.wav; sourceTree = "<group>"; };
-		DA8C0D5716E327F300A6942E /* C_G_C_G_C.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = C_G_C_G_C.wav; sourceTree = "<group>"; };
 		DA8C0D5B16E7427B00A6942E /* Am_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Am_chord.mp3; sourceTree = "<group>"; };
 		DA8C0D5C16E7427B00A6942E /* C_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C_chord.mp3; sourceTree = "<group>"; };
 		DA8C0D5D16E7427B00A6942E /* D_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = D_chord.mp3; sourceTree = "<group>"; };
@@ -176,8 +161,6 @@
 				DA8C0D6216E7427B00A6942E /* level3 */,
 				DA8C0D6716E7427C00A6942E /* level2 */,
 				DA8C0D6D16E7427C00A6942E /* level1 */,
-				DA8C0D5516E3277900A6942E /* music */,
-				DA8C0D2F16DE622800A6942E /* chords */,
 				DA8C0CFF16D895B900A6942E /* RGAppDelegate.h */,
 				DA8C0D0016D895B900A6942E /* RGAppDelegate.m */,
 				DA8C0D2316D89FAF00A6942E /* RGListeningController.h */,
@@ -190,6 +173,8 @@
 				DA8C0D8916E9EA6B00A6942E /* RGFinishTestController.m */,
 				DA8C0D8B16EB002000A6942E /* RGQuester.h */,
 				DA8C0D8C16EB002000A6942E /* RGQuester.m */,
+				DA73C4BD16F3F74F00D7F757 /* RGPlayerController.h */,
+				DA73C4BE16F3F74F00D7F757 /* RGPlayerController.m */,
 				DA8C0D0816D895B900A6942E /* MainStoryboard.storyboard */,
 				DA8C0D0E16D895B900A6942E /* first.png */,
 				DA8C0D1016D895B900A6942E /* first@2x.png */,
@@ -213,29 +198,6 @@
 				DA8C0D0616D895B900A6942E /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DA8C0D2F16DE622800A6942E /* chords */ = {
-			isa = PBXGroup;
-			children = (
-				DA8C0D3916DF301F00A6942E /* Am_chord.wav */,
-				DA8C0D3A16DF301F00A6942E /* D_chord.wav */,
-				DA8C0D3B16DF301F00A6942E /* Dm_chord.wav */,
-				DA8C0D3C16DF301F00A6942E /* Em_chord.wav */,
-				DA8C0D3D16DF301F00A6942E /* F_chord.wav */,
-				DA8C0D3E16DF301F00A6942E /* G_chord.wav */,
-				DA8C0D3116DE624800A6942E /* C_chord.wav */,
-			);
-			name = chords;
-			sourceTree = "<group>";
-		};
-		DA8C0D5516E3277900A6942E /* music */ = {
-			isa = PBXGroup;
-			children = (
-				DA8C0D5616E327F300A6942E /* C_F_C_F_C.wav */,
-				DA8C0D5716E327F300A6942E /* C_G_C_G_C.wav */,
-			);
-			name = music;
 			sourceTree = "<group>";
 		};
 		DA8C0D5A16E7427B00A6942E /* chords */ = {
@@ -349,16 +311,7 @@
 				DA8C0D1116D895B900A6942E /* first@2x.png in Resources */,
 				DA8C0D1616D895B900A6942E /* second.png in Resources */,
 				DA8C0D1816D895B900A6942E /* second@2x.png in Resources */,
-				DA8C0D3216DE624800A6942E /* C_chord.wav in Resources */,
-				DA8C0D3F16DF301F00A6942E /* Am_chord.wav in Resources */,
-				DA8C0D4016DF301F00A6942E /* D_chord.wav in Resources */,
-				DA8C0D4116DF301F00A6942E /* Dm_chord.wav in Resources */,
-				DA8C0D4216DF301F00A6942E /* Em_chord.wav in Resources */,
-				DA8C0D4316DF301F00A6942E /* F_chord.wav in Resources */,
-				DA8C0D4416DF301F00A6942E /* G_chord.wav in Resources */,
 				DA8C0D4916E0AC9300A6942E /* chords_data.plist in Resources */,
-				DA8C0D5816E327F300A6942E /* C_F_C_F_C.wav in Resources */,
-				DA8C0D5916E327F300A6942E /* C_G_C_G_C.wav in Resources */,
 				DA8C0D7316E7427C00A6942E /* Am_chord.mp3 in Resources */,
 				DA8C0D7416E7427C00A6942E /* C_chord.mp3 in Resources */,
 				DA8C0D7516E7427C00A6942E /* D_chord.mp3 in Resources */,
@@ -414,6 +367,7 @@
 				DA8C0D5416E1F1EE00A6942E /* RGPrepareTestController.m in Sources */,
 				DA8C0D8A16E9EA6C00A6942E /* RGFinishTestController.m in Sources */,
 				DA8C0D8D16EB002100A6942E /* RGQuester.m in Sources */,
+				DA73C4BF16F3F74F00D7F757 /* RGPlayerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
