@@ -17,6 +17,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *anwserButton3;
 @property (strong, nonatomic) IBOutlet UILabel *answerLabel;
 @property (strong, nonatomic) IBOutlet UILabel *isCorrectLabel;
+@property (weak, nonatomic) IBOutlet UITextView *questTestLabel;
+
+@property (assign, nonatomic) NSInteger questType;
+@property (assign, nonatomic) NSInteger bigLevel;
 
 - (IBAction)next:(id)sender;
 - (IBAction)repaly:(id)sender;

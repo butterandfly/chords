@@ -17,8 +17,14 @@
 @property (nonatomic) NSInteger score;
 @property (nonatomic) NSInteger currentQuestNum;
 @property (nonatomic) NSDictionary *currentChord;
+@property (assign, nonatomic) NSInteger bigLevel;
 
-- (id)initWithPlistPath:(NSString*)path;
+@property (strong, nonatomic) NSString *correctAnswer;
+
+@property (assign, nonatomic) NSInteger questType;
+@property (strong, nonatomic) NSString *questText;
+
+- (id)initWithLevel:(NSInteger)bigLevel andQuestType:(NSInteger) questType;
 - (void)setupAQuest;
 
 @end

@@ -7,6 +7,10 @@
 //
 
 #import "RGPrepareTestController.h"
+#import "RGTestController.h"
+#import "RGTestTypeViewController.h"
+
+#include "RGConstants.h"
 
 @interface RGPrepareTestController ()
 
@@ -27,6 +31,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.questType = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,11 +44,26 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 //    NSLog(@"%@", [segue identifier]);
     if ([[segue identifier] isEqualToString:@"BeginTest"]) {
-         // begin the test
-//        NSLog(@"prepare the segue");
-        UIViewController *des = segue.destinationViewController;
+        RGTestController *des = segue.destinationViewController;
         [des setValue:self forKey:@"delegate"];
+        des.bigLevel = self.bigLevel;
+        des.questType = self.questType;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"SetType"]) {
+         //
+        RGTestTypeViewController *des = segue.destinationViewController;
+        [des setValue:self forKey:@"configDelegate"];
+        des.questType = self.questType;
+        
+//        [des setValue:self.typeIndex forKey:@"lastIndex"];
     }
 }
 
+- (IBAction)levelChange:(UIStepper *)sender {
+    double value = [sender value];
+    
+    self.bigLevel = (int)value;
+    self.bigLevelLabel.text = [NSString stringWithFormat:@"%d", self.bigLevel];
+}
 @end

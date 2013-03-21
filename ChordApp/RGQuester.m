@@ -8,16 +8,14 @@
 
 #import "RGQuester.h"
 
+#include "RGConstants.h"
+
 @interface RGQuester () {
     NSDictionary *_data;
     NSMutableArray *_questCords;
     // 10 quests
     NSMutableArray *_questMusic;
-    
-    // current things
-    
-    
-    // 
+    //
 }
 
 - (void)baseInit;
@@ -27,28 +25,28 @@
 
 - (void)setupAnswers;
 
+- (void)setupMissingTypeAnswers;
+
+- (void)setupGoingTypeAnswers;
+
 @end
 
 @implementation RGQuester
 
-// don't use this function
-- (id)initWithPlistPath:(NSString *)path {
-    // init and read data
-    if (self = [self init]) {
-        // read data
+- (id)initWithLevel:(NSInteger)bigLevel andQuestType:(NSInteger)questType {
+    if (self = [super init]) {
+        //
+        self.bigLevel = bigLevel;
+        self.questType = questType;
+        [self baseInit];
+        [self setupAQuest];
     }
-    
     return self;
 }
 
 //
 - (id)init {
-    if (self = [super init]) {
-        //
-        [self baseInit];
-        [self setupAQuest];
-    }
-    return self;
+    return nil;
 }
 
 - (void)baseInit {
@@ -62,35 +60,38 @@
     
     _questMusic = [[NSMutableArray alloc] init];
     
-    // count
-    int level1 = 4;
-    int level2 = 4;
-    int level3 = 2;
-    
-    NSMutableArray *level1Music = [[NSMutableArray alloc] initWithArray:[_data objectForKey:@"chords_1"]];
-    NSMutableArray *level2Music = [[NSMutableArray alloc] initWithArray:[_data objectForKey:@"chords_2"]];
-    NSMutableArray *level3Music = [[NSMutableArray alloc] initWithArray:[_data objectForKey:@"chords_3"]];
-    
-    for (int i = 0; i < level1; i++) {
-        int randomNum = arc4random() % [level1Music count];
-        NSDictionary *chord = [level1Music objectAtIndex:randomNum];
-        [_questMusic addObject:chord];
-        [level1Music removeObject:chord];
+    NSArray *levels;
+    switch (self.bigLevel) {
+        case 1:
+            //
+            levels = @[@3, @3, @3, @1];
+            break;
+        case 2:
+            levels = @[@2, @2, @3, @3];
+            break;
+        case 3:
+            levels = @[@1, @2, @2, @5];
+            break;
+            
+        default:
+            levels = @[@3, @3, @3, @1];
+            break;
     }
     
-    for (int i = 0; i < level2; i++) {
-        int randomNum = arc4random() % [level2Music count];
-        NSDictionary *chord = [level2Music objectAtIndex:randomNum];
-        [_questMusic addObject:chord];
-        [level2Music removeObject:chord];
+    for (int i = 0; i < [levels count]; i++) {
+        //
+        NSString *chordsName = [NSString stringWithFormat:@"chords_%d", (i+1)];
+        NSMutableArray *crtLevelMusicArray = [[NSMutableArray alloc] initWithArray:[_data objectForKey:chordsName]];
+        
+        for (int j = 0; j < [levels[i] intValue]; j++) {
+            int randomNum = arc4random() % [crtLevelMusicArray count];
+            NSDictionary *chord = [crtLevelMusicArray objectAtIndex:randomNum];
+            [_questMusic addObject:chord];
+            [crtLevelMusicArray removeObject:chord];
+        }
     }
     
-    for (int i = 0; i < level3; i++) {
-        int randomNum = arc4random() % [level3Music count];
-        NSDictionary *chord = [level3Music objectAtIndex:randomNum];
-        [_questMusic addObject:chord];
-        [level3Music removeObject:chord];
-    }
+//    NSLog(@"%@", _questMusic);
 }
 
 - (void)setupAQuest {
@@ -103,14 +104,47 @@
 - (void)setupQuestion {
     _currentChord = [_questMusic objectAtIndex:_currentQuestNum];
     self.currentMusic = [_currentChord objectForKey:@"name"];
+    
+    if (self.questType == kMissingChord) {
+        //
+        NSArray *componentChordArray = [[self.currentChord objectForKey:@"name"] componentsSeparatedByString:@"_"];
+        self.correctAnswer = componentChordArray[1];
+        self.questText = [[[_data objectForKey:@"questType"] objectAtIndex:self.questType] stringByReplacingOccurrencesOfString:@"\%chord" withString:componentChordArray[0]];
+    }
+    if (self.questType == kGoingChord) {
+        //
+        self.correctAnswer = [_currentChord objectForKey:@"name"];
+        self.questText = [[_data objectForKey:@"questType"] objectAtIndex:self.questType];
+    }
 }
 
 - (void)setupAnswers {
+    switch (self.questType) {
+        case kGoingChord:
+            //
+            [self setupGoingTypeAnswers];
+            break;
+        case kMissingChord:
+            //
+            [self setupMissingTypeAnswers];
+            break;
+        default:
+            [self setupGoingTypeAnswers];
+            break;
+    }
+}
+
+- (void)setupGoingTypeAnswers {
     NSMutableArray *answer4Buttons = [[NSMutableArray alloc] init];
     
-    // get answer array and set answer buttons
-    NSString *answerLevel = [NSString stringWithFormat:@"answers_%@", [_currentChord objectForKey:@"level"]];
-    NSMutableArray *answerArray = [[NSMutableArray alloc] initWithArray:[_data objectForKey:answerLevel]];
+    // better way to get answerArray
+    NSString *answerLevel = [NSString stringWithFormat:@"chords_%@", [self.currentChord objectForKey:@"level"]];
+    NSArray *chordsArray = [NSArray arrayWithArray:[_data objectForKey:answerLevel]];
+    NSMutableArray *answerArray = [[NSMutableArray alloc] init];
+    for (NSDictionary* aChord in chordsArray) {
+        [answerArray addObject:[aChord objectForKey:@"name"]];
+    }
+    
     BOOL isSetTheCorrect = NO;
     for (int i = 0; i < 4; i++) {
         int randomAnswerNum = arc4random() % [answerArray count];
@@ -130,8 +164,27 @@
     self.answers4Button = answer4Buttons;
 }
 
-// get answers4Button
-//- (NSArray *)answers4Button {
-//}
+-  (void)setupMissingTypeAnswers {
+    NSMutableArray *answer4Buttons = [[NSMutableArray alloc] init];
+    NSMutableArray *answerArray = [NSMutableArray arrayWithArray:[_data objectForKey:@"chord_c"]];
+    
+    BOOL isSetTheCorrect = NO;
+    for (int i = 0; i < 4; i++) {
+        int randomAnswerNum = arc4random() % [answerArray count];
+        NSString *anAnswer = [answerArray objectAtIndex:(randomAnswerNum)];
+        [answerArray removeObject:anAnswer];
+        [answer4Buttons addObject:anAnswer];
+        if ([anAnswer isEqualToString:self.correctAnswer]) {
+            isSetTheCorrect = YES;
+        }
+    }
+    
+    // set correct answer if not exist
+    if (!isSetTheCorrect) {
+        [answer4Buttons setObject:self.correctAnswer atIndexedSubscript:(arc4random()%4)];
+    }
+    
+    self.answers4Button = answer4Buttons;
+}
 
 @end

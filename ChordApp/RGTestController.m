@@ -47,13 +47,13 @@
     _musicType = @"mp3";
     
     // setup quester
-    _quester = [[RGQuester alloc] init];
+    _quester = [[RGQuester alloc] initWithLevel:self.bigLevel andQuestType:self.questType];
     
     
     // setup ui
     self.answerLabel.hidden = YES;
     self.isCorrectLabel.hidden = YES;
-    
+    self.questTestLabel.text = _quester.questText;
     [self setupAnswerButtons];
     
     // get playercontroller
@@ -74,7 +74,6 @@
         UIViewController *des = [segue destinationViewController];
         NSNumber *score = [NSNumber numberWithInteger:_quester.score];
         [des setValue:score forKey:@"score"];
-//        des.score = score;
         [des setValue:self.delegate forKey:@"delegate"];
     }
 }
@@ -117,6 +116,10 @@
         [_quester setupAQuest];
         [self setupAnswerButtons];
         
+        //
+        self.questTestLabel.text = _quester.questText;
+        
+        // setup label
         self.answerLabel.alpha = 1;
         self.isCorrectLabel.alpha = 1;
         self.answerLabel.hidden = YES;
@@ -165,7 +168,7 @@
     BOOL isCorrect = NO;
     NSString *selected = ((UIButton*)sender).titleLabel.text;
     NSString *message;
-    if ([selected isEqualToString:_quester.currentMusic]) {
+    if ([selected isEqualToString:_quester.correctAnswer]) {
         isCorrect = YES;
         _quester.score++;
         message = @"正确！";
@@ -194,7 +197,7 @@
 }
 
 - (void)showAnswerLabelByChose:(BOOL)isCorrect {
-    self.answerLabel.text =[NSString stringWithFormat:@"正确答案：%@", _quester.currentMusic ];
+    self.answerLabel.text =[NSString stringWithFormat:@"正确答案：%@", _quester.correctAnswer];
     if (isCorrect) {
         self.isCorrectLabel.text = @"选择正确";
         self.isCorrectLabel.textColor = [UIColor greenColor];
