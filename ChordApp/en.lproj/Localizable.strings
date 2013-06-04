@@ -1,0 +1,23 @@
+/* Localized versions of Info.plist keys */
+
+// ***** RGChordsController *****
+
+"EDITTIPS" = "Click to change";
+"CHORDS" = "Chords";
+
+// ***** RGTestController *****
+"CORRECT" = "Correct";
+"WRONG" = "Wrong";
+"ANSWER" = "The answer is: %@";
+"FINISH" = "Finish";
+"PLEASESELECT" = "Please select the answer";
+
+// ***** RGFinishTestController *****
+"YOURSCORE" = "Your score is: %d";
+
+// ***** chords_data.plist *****
+
+"CATE_CHORDS_PROGRESSION" = "Chords Progression";
+"CATE_MISSING_CHORD" = "Missing Chord";
+"QUEST_CHORDS_PROGRESSION"= "Listen the music, choose the correct progression: ";
+"QUEST_MISSING_CHORD" = "This music begin by %chord, what is the second one?";

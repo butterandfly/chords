@@ -15,4 +15,6 @@
 @property (assign, nonatomic) NSInteger questType;
 @property (weak, nonatomic) RGPrepareTestController* configDelegate;
 
+@property (strong, nonatomic) NSMutableArray *categoryArray;
+
 @end

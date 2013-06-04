@@ -18,4 +18,6 @@
 @property (assign, nonatomic) NSInteger bigLevel;
 
 - (IBAction)levelChange:(UIStepper*)sender;
+- (void)refreshTypeLabelByKey:(NSInteger)typeKey;
+- (void)setupQuestTypeByKey:(NSInteger)typeKey;
 @end

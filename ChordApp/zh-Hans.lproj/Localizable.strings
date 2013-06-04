@@ -1,0 +1,12 @@
+/* Localized versions of Info.plist keys */
+
+// ***** RGChordsController *****
+
+"EDITTIPS" = "点击按钮修改和弦";
+"CHORDS" = "和弦";
+
+// ***** chords_data.plist *****
+"CATE_CHORDS_PROGRESSION" = "和弦走向";
+"CATE_MISSING_CHORD" = "缺失和弦";
+"QUEST_CHORDS_PROGRESSION"= "聆听这段音乐，选择正确的和弦走向：";
+"QUEST_MISSING_CHORD" = "聆听这段由%chord和弦开始的音乐，其中第2小节的和弦是？";

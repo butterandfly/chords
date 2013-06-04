@@ -20,5 +20,14 @@
 - (void)playCurrentMusic;
 - (void)stopCurrentMusic;
 - (void)setupCurrentPlayerByMusic:(NSString*) music;
+- (void)setupAndPlayCurrentPlayerByMusicFile:(NSString*)musicFile;
+
+- (void)playFromMapByChordName:(NSString*)chord;
+- (void)setupMapByArray:(NSArray*)chordsArray;
+- (void)setupButtonChords;
+
+- (AVAudioPlayer*)musicPlayerByMusicFile:(NSString*)musicFile;
+
+- (void)resetMapFromChord:(NSString*)srcChord toChord:(NSString*)desChord;
 
 @end

@@ -9,16 +9,16 @@
 #import "RGTestController.h"
 #import "RGQuester.h"
 #import "RGPlayerController.h"
+#import "RGHelper.h"
 
 @interface RGTestController () {
-    NSString *_musicType;
-    //
+    // a quester that deal all the quest stuff
     RGQuester *_quester;
-    //
+    // music player controller
     RGPlayerController *_pc;
 }
 
-@property (weak, nonatomic) UIViewController *delegate;
+- (void)initQuestUI;
 
 - (void)setupAnswerButtons;
 
@@ -26,38 +26,26 @@
 
 - (void)setAnswerButtonsEnableState:(BOOL)isEnable;
 
+- (void)setAlaph4AnswerButtons:(float)alpha;
+
+- (NSString*)rightOrWrongMessageByIsCorrect:(BOOL)isCorrect;
+
+
 @end
 
 @implementation RGTestController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    //
-    _musicType = @"mp3";
-    
-    // setup quester
+    // Init
     _quester = [[RGQuester alloc] initWithLevel:self.bigLevel andQuestType:self.questType];
-    
-    
-    // setup ui
-    self.answerLabel.hidden = YES;
-    self.isCorrectLabel.hidden = YES;
-    self.questTestLabel.text = _quester.questText;
-    [self setupAnswerButtons];
-    
-    // get playercontroller
     _pc = [RGPlayerController sharedPlayerController];
+    
+    // Whis is this?
+    [self initQuestUI];
+    
     // setup and play
     [_pc setupCurrentPlayerByMusic:_quester.currentMusic];
     [_pc playCurrentMusic];
@@ -70,6 +58,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    //
     if ([[segue identifier] isEqualToString:@"finishTest"]) {
         UIViewController *des = [segue destinationViewController];
         NSNumber *score = [NSNumber numberWithInteger:_quester.score];
@@ -83,7 +72,8 @@
 - (IBAction)next:(id)sender {
     // check if had answered quest
     if (!_quester.haveAnswered) {
-        [[[UIAlertView alloc] initWithTitle:@"请选择答案" message:nil delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+        NSString* tipMsg = NSLocalizedString(@"PLEASESELECT", nil);
+        [[[UIAlertView alloc] initWithTitle:tipMsg message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
         return;
     }
     
@@ -99,43 +89,28 @@
     // animation
     [UIView animateWithDuration:1.0 animations:^{
         // disappear all the things
-        
-        for (int i = 0; i < 4; i++) {
-            NSString *buttonName = [NSString stringWithFormat:@"anwserButton%d", i];
-            UIButton *currentButton =  [self valueForKey:buttonName];
-            currentButton.alpha = 0;
-        }
-        
+        [self setAlaph4AnswerButtons:0];
         self.answerLabel.alpha = 0;
         self.isCorrectLabel.alpha = 0;
         
     } completion:^(BOOL finished) {
         // step quest number, then init next quest
         _quester.currentQuestNum++;
-        // here, init next question
+        // init next question
         [_quester setupAQuest];
-        [self setupAnswerButtons];
         
-        //
-        self.questTestLabel.text = _quester.questText;
-        
-        // setup label
+        // setup ui
         self.answerLabel.alpha = 1;
         self.isCorrectLabel.alpha = 1;
-        self.answerLabel.hidden = YES;
-        self.isCorrectLabel.hidden = YES;
+        [self initQuestUI];
         
         // show all the things
         [UIView animateWithDuration:1.5 animations:^{
             // show all answer buttons
-            for (int i = 0; i < 4; i++) {
-                NSString *buttonName = [NSString stringWithFormat:@"anwserButton%d", i];
-                UIButton *currentButton =  [self valueForKey:buttonName];
-                currentButton.alpha = 1;
-            }
+            [self setAlaph4AnswerButtons:1];
             // check if it's the last quest
             if (_quester.currentQuestNum + 1 == _quester.questSum) {
-                [self.nextButton setTitle:@"完成" forState:UIControlStateNormal];
+                [self.nextButton setTitle:NSLocalizedString(@"FINISH", nil) forState:UIControlStateNormal];
             }
             
         } completion:^(BOOL finished) {
@@ -147,10 +122,12 @@
     
 }
 
+// replay button
 - (IBAction)repaly:(id)sender {
     [_pc playCurrentMusic];
 }
 
+// cancle button
 - (IBAction)cancleTest:(id)sender {
     [_pc stopCurrentMusic];
     if (self.delegate) {
@@ -158,32 +135,33 @@
     }
 }
 
+// answer button
 - (void)selectAnswer:(id)sender {
-    // stop music
     [_pc stopCurrentMusic];
-    // set token
+    // Set haveAnswered token.
     _quester.haveAnswered = YES;
     
-    // alert message and disappear label
     BOOL isCorrect = NO;
     NSString *selected = ((UIButton*)sender).titleLabel.text;
-    NSString *message;
     if ([selected isEqualToString:_quester.correctAnswer]) {
         isCorrect = YES;
         _quester.score++;
-        message = @"正确！";
-    }else {
-        isCorrect = NO;
-        message = @"错误！";
     }
-    [[[UIAlertView alloc] initWithTitle:message message:nil delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
-    [self showAnswerLabelByChose:isCorrect];
     
-    // disable buttons
+    [RGHelper showOkAlertWithTitle:[self rightOrWrongMessageByIsCorrect:isCorrect] message:nil];
+    [self showAnswerLabelByChose:isCorrect];
+    // Disable buttons.
     [self setAnswerButtonsEnableState:NO];
 }
 
-#pragma mark - privated methods
+#pragma mark - Privated methods
+
+- (void)initQuestUI {
+    self.answerLabel.hidden = YES;
+    self.isCorrectLabel.hidden = YES;
+    self.questTestLabel.text = _quester.questText;
+    [self setupAnswerButtons];
+}
 
 - (void)setupAnswerButtons {
     // get answer array and set answer buttons
@@ -191,18 +169,20 @@
         NSString *buttonName = [NSString stringWithFormat:@"anwserButton%d", i];
         UIButton *currentButton = [self valueForKey:buttonName];
         currentButton.enabled = YES;
-        [currentButton setTitle:_quester.answers4Button[i] forState:UIControlStateNormal];
+        [currentButton setTitle:_quester.answers4Buttons[i] forState:UIControlStateNormal];
     }
     
 }
 
+// This function show the answer and right or wrong.
+// Parameter is that if you have the correct answer.
 - (void)showAnswerLabelByChose:(BOOL)isCorrect {
-    self.answerLabel.text =[NSString stringWithFormat:@"正确答案：%@", _quester.correctAnswer];
+    self.answerLabel.text =[NSString stringWithFormat:NSLocalizedString(@"ANSWER", nil), _quester.correctAnswer];
     if (isCorrect) {
-        self.isCorrectLabel.text = @"选择正确";
+        self.isCorrectLabel.text = NSLocalizedString(@"CORRECT", nil);
         self.isCorrectLabel.textColor = [UIColor greenColor];
     } else {
-        self.isCorrectLabel.text = @"选择错误";
+        self.isCorrectLabel.text = NSLocalizedString(@"WRONG", nil);
         self.isCorrectLabel.textColor = [UIColor redColor];
     }
     
@@ -210,14 +190,27 @@
     self.isCorrectLabel.hidden = NO;
 }
 
-#pragma mark - helping privated method
-
 - (void)setAnswerButtonsEnableState:(BOOL)isEnable {
     for (int i = 0; i < 4; i++) {
         NSString *buttonName = [NSString stringWithFormat:@"anwserButton%d", i];
         UIButton *currentButton =  [self valueForKey:buttonName];
         currentButton.enabled = isEnable;
     }
+}
+
+- (void)setAlaph4AnswerButtons:(float)alaph {
+    for (int i = 0; i < 4; i++) {
+        NSString *buttonName = [NSString stringWithFormat:@"anwserButton%d", i];
+        UIButton *currentButton =  [self valueForKey:buttonName];
+        currentButton.alpha = alaph;
+    }
+}
+
+- (NSString *)rightOrWrongMessageByIsCorrect:(BOOL)isCorrect {
+    if (isCorrect) {
+        return NSLocalizedString(@"CORRECT", nil);
+    }
+    return NSLocalizedString(@"WRONG", nil);
 }
 
 @end

@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+// RGQuest controller a text, including the quest and answers.
 @interface RGQuester : NSObject
 
-@property (nonatomic) NSArray *answers4Button;
+@property (strong, nonatomic) NSMutableArray *answers4Buttons;
 @property (nonatomic) NSString *currentMusic;
 @property (nonatomic) BOOL *haveAnswered;
 @property (nonatomic) NSInteger questSum;
@@ -18,9 +19,7 @@
 @property (nonatomic) NSInteger currentQuestNum;
 @property (nonatomic) NSDictionary *currentChord;
 @property (assign, nonatomic) NSInteger bigLevel;
-
 @property (strong, nonatomic) NSString *correctAnswer;
-
 @property (assign, nonatomic) NSInteger questType;
 @property (strong, nonatomic) NSString *questText;
 

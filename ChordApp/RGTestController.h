@@ -22,6 +22,8 @@
 @property (assign, nonatomic) NSInteger questType;
 @property (assign, nonatomic) NSInteger bigLevel;
 
+@property (weak, nonatomic) UIViewController *delegate;
+
 - (IBAction)next:(id)sender;
 - (IBAction)repaly:(id)sender;
 - (IBAction)cancleTest:(id)sender;

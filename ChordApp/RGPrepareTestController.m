@@ -9,8 +9,10 @@
 #import "RGPrepareTestController.h"
 #import "RGTestController.h"
 #import "RGTestTypeViewController.h"
+#import "RGHelper.h"
 
-#include "RGConstants.h"
+//#include "RGConstants.h"
+#import "RGConstants.h"
 
 @interface RGPrepareTestController ()
 
@@ -18,52 +20,62 @@
 
 @implementation RGPrepareTestController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
-    self.questType = 0;
+    // init the type of the quest
+    NSNumber *questCate = [RGHelper objectFromUserDefaultsByKey:@"questCate"];
+    if (questCate == nil) {
+        questCate = [NSNumber numberWithInt:kQuestCateChordsProgression];
+        [RGHelper setUserDefaultsObject:questCate byKey:kSettingQuestCategory];
+    }
+    [self setupQuestTypeByKey:[questCate integerValue]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    NSLog(@"%@", [segue identifier]);
+    UIViewController *des = segue.destinationViewController;
+    
     if ([[segue identifier] isEqualToString:@"BeginTest"]) {
-        RGTestController *des = segue.destinationViewController;
         [des setValue:self forKey:@"delegate"];
-        des.bigLevel = self.bigLevel;
-        des.questType = self.questType;
+        [des setValue:[NSNumber numberWithInteger:self.bigLevel] forKey:@"bigLevel"];
+        [des setValue:[NSNumber numberWithInteger:self.questType] forKey:@"questType"];
     }
     
     if ([[segue identifier] isEqualToString:@"SetType"]) {
-         //
-        RGTestTypeViewController *des = segue.destinationViewController;
         [des setValue:self forKey:@"configDelegate"];
-        des.questType = self.questType;
-        
-//        [des setValue:self.typeIndex forKey:@"lastIndex"];
+        [des setValue:[NSNumber numberWithInteger:self.questType] forKey:@"questType"];
     }
 }
 
+#pragma mark - ibactions
+
+// Stepper's action.
 - (IBAction)levelChange:(UIStepper *)sender {
+    // get the value of steper
     double value = [sender value];
     
+    // set field and label
     self.bigLevel = (int)value;
     self.bigLevelLabel.text = [NSString stringWithFormat:@"%d", self.bigLevel];
 }
+
+#pragma mark - Public
+
+- (void)refreshTypeLabelByKey:(NSInteger)typeKey {
+    NSDictionary *dataDict = [RGHelper plistDictByFileName:@"chords_data"];
+    NSMutableArray *categoryArray = [RGHelper localizedArrayFromKeysArray:[dataDict objectForKey:@"questCategorys"]];
+    self.typeLabel.text = [categoryArray objectAtIndex:typeKey];
+}
+
+- (void)setupQuestTypeByKey:(NSInteger)typeKey {
+    self.questType = typeKey;
+    [self refreshTypeLabelByKey:typeKey];
+}
+
 @end

@@ -7,35 +7,41 @@
 //
 
 #import "RGQuester.h"
+#import "RGDataCenter.h"
+#import "RGHelper.h"
 
-#include "RGConstants.h"
+#import "RGConstants.h"
 
 @interface RGQuester () {
-    NSDictionary *_data;
-    NSMutableArray *_questCords;
     // 10 quests
-    NSMutableArray *_questMusic;
+    NSMutableArray *_questArray;
     //
+    RGDataCenter *_dataCenter;
 }
 
 - (void)baseInit;
 
-
-- (void)setupQuestion;
-
+- (void)setupCorrectAnswer;
 - (void)setupAnswers;
-
-- (void)setupMissingTypeAnswers;
-
-- (void)setupGoingTypeAnswers;
-
+- (void)setupAnswersWithQuestCate:(NSInteger)cate;
+- (void)setupAnswers4ButtonsWithAnswersArray:(NSMutableArray *)answerArray;
+- (void)setupQuestArray;
+- (void)setupQuestText;
+    
+- (NSString*)questTextByCateKey:(NSInteger)cateKey;
+- (NSArray*)levelArray;
+- (NSMutableArray*)mutableArrayOfQuestTextInLevel:(NSInteger)level;
+    
 @end
 
 @implementation RGQuester
 
+#pragma mark - Public
+
 - (id)initWithLevel:(NSInteger)bigLevel andQuestType:(NSInteger)questType {
     if (self = [super init]) {
         //
+        _dataCenter = [RGDataCenter sharedDataCenter];
         self.bigLevel = bigLevel;
         self.questType = questType;
         [self baseInit];
@@ -49,21 +55,59 @@
     return nil;
 }
 
+- (void)setupAQuest {
+    _haveAnswered = NO;
+    
+    _currentChord = [_questArray objectAtIndex:_currentQuestNum];
+    self.currentMusic = [_currentChord objectForKey:@"name"];
+    [self setupQuestText];
+    [self setupCorrectAnswer];
+    [self setupAnswers];
+}
+
+#pragma mark - Privated
+
 - (void)baseInit {
     _score = 0;
     _questSum = 10;
     _currentQuestNum = 0;
     
-    // get data from property file
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"chords_data" ofType:@"plist"];
-    _data = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    [self setupQuestArray];
+}
+
+- (void)setupQuestText {
+    self.questText = [self questTextByCateKey:self.questType];
     
-    _questMusic = [[NSMutableArray alloc] init];
+    if (self.questType == kQuestCateMissingChod) {
+        NSArray *componentChordArray = [[self.currentChord objectForKey:@"name"] componentsSeparatedByString:@"_"];
+        self.questText = [self.questText stringByReplacingOccurrencesOfString:@"\%chord" withString:componentChordArray[0]];
+    }
+}
+
+- (void)setupAnswers {
+    [self setupAnswersWithQuestCate:self.questType];
+}
+
+- (void)setupAnswersWithQuestCate:(NSInteger)cate {
+    NSMutableArray *answerArray;
     
+    // Get anwers for each type of quest.
+    if (cate == kQuestCateChordsProgression) {
+        // Get all answer in the same level.
+        answerArray = [self mutableArrayOfQuestTextInLevel:[[self.currentChord objectForKey:@"level"] integerValue]];
+    }
+    if (cate == kQuestCateMissingChod) {
+        // Get all chords in C majay.
+        answerArray = [NSMutableArray arrayWithArray:[[RGDataCenter sharedDataCenter] objectFromChordsDataByKey:@"chord_c"]];
+    }
+    
+    [self setupAnswers4ButtonsWithAnswersArray:answerArray];
+}
+
+- (NSArray*)levelArray {
     NSArray *levels;
     switch (self.bigLevel) {
         case 1:
-            //
             levels = @[@3, @3, @3, @1];
             break;
         case 2:
@@ -78,113 +122,72 @@
             break;
     }
     
-    for (int i = 0; i < [levels count]; i++) {
-        //
-        NSString *chordsName = [NSString stringWithFormat:@"chords_%d", (i+1)];
-        NSMutableArray *crtLevelMusicArray = [[NSMutableArray alloc] initWithArray:[_data objectForKey:chordsName]];
-        
-        for (int j = 0; j < [levels[i] intValue]; j++) {
-            int randomNum = arc4random() % [crtLevelMusicArray count];
-            NSDictionary *chord = [crtLevelMusicArray objectAtIndex:randomNum];
-            [_questMusic addObject:chord];
-            [crtLevelMusicArray removeObject:chord];
-        }
-    }
-    
-//    NSLog(@"%@", _questMusic);
+    return levels;
 }
 
-- (void)setupAQuest {
-    _haveAnswered = NO;
-    
-    [self setupQuestion];
-    [self setupAnswers];
+- (NSMutableArray*)mutableArrayOfQuestTextInLevel:(NSInteger)level {
+    NSMutableArray *questTextArray = [[NSMutableArray alloc] init];
+    NSString *questLevel = [NSString stringWithFormat:@"chords_%d", level];
+    NSArray *questArrayInLevel = [NSArray arrayWithArray:[[RGDataCenter sharedDataCenter] objectFromChordsDataByKey: questLevel]];
+    for (NSDictionary* aQuestDict in questArrayInLevel) {
+        [questTextArray addObject:[aQuestDict objectForKey:@"name"]];
+    }
+    return questTextArray;
 }
 
-- (void)setupQuestion {
-    _currentChord = [_questMusic objectAtIndex:_currentQuestNum];
-    self.currentMusic = [_currentChord objectForKey:@"name"];
-    
-    if (self.questType == kMissingChord) {
-        //
-        NSArray *componentChordArray = [[self.currentChord objectForKey:@"name"] componentsSeparatedByString:@"_"];
-        self.correctAnswer = componentChordArray[1];
-        self.questText = [[[_data objectForKey:@"questType"] objectAtIndex:self.questType] stringByReplacingOccurrencesOfString:@"\%chord" withString:componentChordArray[0]];
-    }
-    if (self.questType == kGoingChord) {
-        //
-        self.correctAnswer = [_currentChord objectForKey:@"name"];
-        self.questText = [[_data objectForKey:@"questType"] objectAtIndex:self.questType];
-    }
-}
+- (void)setupAnswers4ButtonsWithAnswersArray:(NSMutableArray *)answerArray {
+    self.answers4Buttons = [[NSMutableArray alloc] init];
 
-- (void)setupAnswers {
-    switch (self.questType) {
-        case kGoingChord:
-            //
-            [self setupGoingTypeAnswers];
-            break;
-        case kMissingChord:
-            //
-            [self setupMissingTypeAnswers];
-            break;
-        default:
-            [self setupGoingTypeAnswers];
-            break;
-    }
-}
-
-- (void)setupGoingTypeAnswers {
-    NSMutableArray *answer4Buttons = [[NSMutableArray alloc] init];
-    
-    // better way to get answerArray
-    NSString *answerLevel = [NSString stringWithFormat:@"chords_%@", [self.currentChord objectForKey:@"level"]];
-    NSArray *chordsArray = [NSArray arrayWithArray:[_data objectForKey:answerLevel]];
-    NSMutableArray *answerArray = [[NSMutableArray alloc] init];
-    for (NSDictionary* aChord in chordsArray) {
-        [answerArray addObject:[aChord objectForKey:@"name"]];
-    }
-    
     BOOL isSetTheCorrect = NO;
+    // Add answer to the answer4Buttons.
     for (int i = 0; i < 4; i++) {
         int randomAnswerNum = arc4random() % [answerArray count];
-        NSString *anAnswer = [answerArray objectAtIndex:(randomAnswerNum)];
+        NSString *anAnswer = [answerArray objectAtIndex:randomAnswerNum];
         [answerArray removeObject:anAnswer];
-        [answer4Buttons addObject:anAnswer];
-        if ([anAnswer isEqualToString:self.currentMusic]) {
-            isSetTheCorrect = YES;
-        }
-    }
-    
-    // set correct answer if not exist
-    if (!isSetTheCorrect) {
-        [answer4Buttons setObject:self.currentMusic atIndexedSubscript:(arc4random()%4)];
-    }
-    
-    self.answers4Button = answer4Buttons;
-}
-
--  (void)setupMissingTypeAnswers {
-    NSMutableArray *answer4Buttons = [[NSMutableArray alloc] init];
-    NSMutableArray *answerArray = [NSMutableArray arrayWithArray:[_data objectForKey:@"chord_c"]];
-    
-    BOOL isSetTheCorrect = NO;
-    for (int i = 0; i < 4; i++) {
-        int randomAnswerNum = arc4random() % [answerArray count];
-        NSString *anAnswer = [answerArray objectAtIndex:(randomAnswerNum)];
-        [answerArray removeObject:anAnswer];
-        [answer4Buttons addObject:anAnswer];
+        [self.answers4Buttons addObject:anAnswer];
         if ([anAnswer isEqualToString:self.correctAnswer]) {
             isSetTheCorrect = YES;
         }
     }
-    
-    // set correct answer if not exist
+    // Set correct answer if not exist.
     if (!isSetTheCorrect) {
-        [answer4Buttons setObject:self.correctAnswer atIndexedSubscript:(arc4random()%4)];
+        [self.answers4Buttons setObject:self.correctAnswer atIndexedSubscript:(arc4random()%4)];
     }
+}
+
+- (NSString*)questTextByCateKey:(NSInteger)cateKey {
+    NSArray *questCateTextArray = [[RGDataCenter sharedDataCenter] objectFromChordsDataByKey:kPlistQuestCatesText];
+    return NSLocalizedString([questCateTextArray objectAtIndex:cateKey], nil);
+}
+
+- (void)setupCorrectAnswer {
+    self.correctAnswer = [_currentChord objectForKey:@"name"];
     
-    self.answers4Button = answer4Buttons;
+    if (self.questType == kQuestCateMissingChod) {
+        NSArray *componentChordArray = [self.correctAnswer componentsSeparatedByString:@"_"];
+        self.correctAnswer = componentChordArray[1];
+    }
+}
+
+- (void)setupQuestArray {
+    _questArray = [[NSMutableArray alloc] init];
+    
+    // Make sure you have set the bigLevel.
+    NSArray *levels = [self levelArray];
+    
+    for (int i = 0; i < [levels count]; i++) {
+        // Get each level's quests.
+        NSString *questLevelName = [NSString stringWithFormat:@"chords_%d", (i+1)];
+        NSMutableArray *crtLevelMusicArray = [[NSMutableArray alloc] initWithArray:[[RGDataCenter sharedDataCenter] objectFromChordsDataByKey:questLevelName]];
+        
+        // Set up each level's quests.
+        for (int j = 0; j < [levels[i] intValue]; j++) {
+            int randomNum = arc4random() % [crtLevelMusicArray count];
+            NSDictionary *chord = [crtLevelMusicArray objectAtIndex:randomNum];
+            [_questArray addObject:chord];
+            [crtLevelMusicArray removeObject:chord];
+        }
+    }
 }
 
 @end

@@ -8,12 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ChordApp/RGTestController.m"
-         timestampString = "385576286.858054"
+         timestampString = "391962162.946202"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "196"
-         endingLineNumber = "196"
-         landmarkName = "-setupAnswerButtons"
+         startingLineNumber = "183"
+         endingLineNumber = "183"
+         landmarkName = "-showAnswerLabelByChose:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -21,25 +21,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ChordApp/RGTestController.m"
-         timestampString = "385576286.858054"
+         timestampString = "391930177.12076"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "162"
-         endingLineNumber = "162"
-         landmarkName = "-selectAnswer:"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
+         landmarkName = "-repaly:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ChordApp/RGTestController.m"
-         timestampString = "385576286.858054"
+         filePath = "ChordApp/RGChordsMediator.m"
+         timestampString = "391822104.16758"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "135"
-         endingLineNumber = "135"
-         landmarkName = "-next:"
+         startingLineNumber = "57"
+         endingLineNumber = "57"
+         landmarkName = "-changeChordByTag:srcChord:desChord:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ChordApp/RGFinishTestController.m"
+         timestampString = "391930177.12076"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "24"
+         endingLineNumber = "24"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

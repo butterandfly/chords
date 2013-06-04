@@ -14,27 +14,19 @@
 
 @implementation RGFinishTestController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize delegate;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
     NSInteger normalScore =  [self.score integerValue] * 10;
-    self.scoreMessage.text = [NSString stringWithFormat:@"你的得分是：%d", normalScore];
+    self.scoreMessage.text = [NSString stringWithFormat:NSLocalizedString(@"YOURSCORE", nil), normalScore];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)finish:(id)sender {
