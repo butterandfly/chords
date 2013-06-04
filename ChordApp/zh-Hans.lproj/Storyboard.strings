@@ -1,0 +1,123 @@
+
+/* Class = "IBUIButton"; normalTitle = "a"; ObjectID = "0a7-Aq-vHB"; */
+"0a7-Aq-vHB.normalTitle" = "a";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "2tc-gZ-YNm"; */
+"2tc-gZ-YNm.normalTitle" = "Button";
+
+/* Class = "IBUIButton"; normalTitle = "Sequence"; ObjectID = "3Ai-XR-Rxk"; */
+"3Ai-XR-Rxk.normalTitle" = "Sequence";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "5Xr-dn-lDA"; */
+"5Xr-dn-lDA.normalTitle" = "Button";
+
+/* Class = "IBUIButton"; normalTitle = "Start"; ObjectID = "9lr-pf-j9S"; */
+"9lr-pf-j9S.normalTitle" = "Start";
+
+/* Class = "IBUITabBarItem"; title = "测试"; ObjectID = "Csa-8K-U2b"; */
+"Csa-8K-U2b.title" = "测试";
+
+/* Class = "IBUILabel"; text = "和弦走向"; ObjectID = "EdX-s0-2LV"; */
+"EdX-s0-2LV.text" = "和弦走向";
+
+/* Class = "IBUITabBarItem"; title = "和弦"; ObjectID = "GC3-Lo-3sr"; */
+"GC3-Lo-3sr.title" = "和弦";
+
+/* Class = "IBUIButton"; normalTitle = "下一题"; ObjectID = "GE6-Qn-wyL"; */
+"GE6-Qn-wyL.normalTitle" = "下一题";
+
+/* Class = "IBUITabBarItem"; title = "测试"; ObjectID = "Hab-ag-VVn"; */
+"Hab-ag-VVn.title" = "测试";
+
+/* Class = "IBUIBarButtonItem"; title = "完成"; ObjectID = "Hfc-Cp-G1v"; */
+"Hfc-Cp-G1v.title" = "完成";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "IKr-da-OL9"; */
+"IKr-da-OL9.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "答案是："; ObjectID = "JAW-5M-SZ8"; */
+"JAW-5M-SZ8.text" = "答案是：";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "NIr-rY-TUr"; */
+"NIr-rY-TUr.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "缺失和弦"; ObjectID = "PAb-Za-XYH"; */
+"PAb-Za-XYH.text" = "缺失和弦";
+
+/* Class = "IBUILabel"; text = "测试结束！"; ObjectID = "PvN-EQ-A0I"; */
+"PvN-EQ-A0I.text" = "测试结束！";
+
+/* Class = "IBUILabel"; text = "开始"; ObjectID = "T6f-pe-SDQ"; */
+"T6f-pe-SDQ.text" = "开始";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "Tda-Qj-H3g"; */
+"Tda-Qj-H3g.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "你的得分为：100"; ObjectID = "UBj-03-VFf"; */
+"UBj-03-VFf.text" = "你的得分为：100";
+
+/* Class = "IBUINavigationItem"; title = "问题种类"; ObjectID = "VCc-3B-6NB"; */
+"VCc-3B-6NB.title" = "问题种类";
+
+/* Class = "IBUINavigationItem"; title = "和弦"; ObjectID = "VIX-ZG-7sp"; */
+"VIX-ZG-7sp.title" = "和弦";
+
+/* Class = "IBUINavigationItem"; title = "测试"; ObjectID = "W1k-TB-xl5"; */
+"W1k-TB-xl5.title" = "测试";
+
+/* Class = "IBUITabBarItem"; title = "Midi"; ObjectID = "Y9i-TL-Bvq"; */
+"Y9i-TL-Bvq.title" = "Midi";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "b2O-04-3ai"; */
+"b2O-04-3ai.normalTitle" = "Button";
+
+/* Class = "IBUIBarButtonItem"; title = "取消"; ObjectID = "eHP-Tt-2Np"; */
+"eHP-Tt-2Np.title" = "取消";
+
+/* Class = "IBUINavigationItem"; title = "选择和弦"; ObjectID = "fE5-W3-M3g"; */
+"fE5-W3-M3g.title" = "选择和弦";
+
+/* Class = "IBUIButton"; normalTitle = "重放"; ObjectID = "gsu-3c-cdf"; */
+"gsu-3c-cdf.normalTitle" = "重放";
+
+/* Class = "IBUILabel"; text = "选择正确！"; ObjectID = "h4F-Lf-w4S"; */
+"h4F-Lf-w4S.text" = "选择正确！";
+
+/* Class = "IBUITableViewSection"; headerTitle = "题目种类"; ObjectID = "iMI-je-wLX"; */
+"iMI-je-wLX.headerTitle" = "题目种类";
+
+/* Class = "IBUINavigationItem"; title = "得分"; ObjectID = "jiL-Xd-EDa"; */
+"jiL-Xd-EDa.title" = "得分";
+
+/* Class = "IBUIButton"; normalTitle = "chord"; ObjectID = "kTj-We-mFt"; */
+"kTj-We-mFt.normalTitle" = "chord";
+
+/* Class = "IBUITextView"; text = "    聆听这段音乐，选择正确的和弦走向："; ObjectID = "ma1-BW-ypH"; */
+"ma1-BW-ypH.text" = "    聆听这段音乐，选择正确的和弦走向：";
+
+/* Class = "IBUIButton"; normalTitle = "stop"; ObjectID = "nfW-ut-Qg2"; */
+"nfW-ut-Qg2.normalTitle" = "stop";
+
+/* Class = "IBUILabel"; text = "1"; ObjectID = "oZy-QI-WxR"; */
+"oZy-QI-WxR.text" = "1";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "psS-ey-9vI"; */
+"psS-ey-9vI.normalTitle" = "Button";
+
+/* Class = "IBUITableViewSection"; headerTitle = "难度"; ObjectID = "qfM-kF-8gL"; */
+"qfM-kF-8gL.headerTitle" = "难度";
+
+/* Class = "IBUIBarButtonItem"; title = "取消"; ObjectID = "rKw-hv-KMO"; */
+"rKw-hv-KMO.title" = "取消";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "tHU-Cj-rCT"; */
+"tHU-Cj-rCT.normalTitle" = "Button";
+
+/* Class = "IBUIBarButtonItem"; title = "取消"; ObjectID = "vC0-Bw-m5E"; */
+"vC0-Bw-m5E.title" = "取消";
+
+/* Class = "IBUINavigationItem"; title = "测试设置"; ObjectID = "vgK-vP-5MK"; */
+"vgK-vP-5MK.title" = "测试设置";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "ymO-Ot-BYc"; */
+"ymO-Ot-BYc.normalTitle" = "Button";

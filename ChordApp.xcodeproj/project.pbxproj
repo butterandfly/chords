@@ -97,7 +97,7 @@
 		DA29843A1759B52A004605D4 /* RGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGHelper.m; sourceTree = "<group>"; };
 		DA29843C175AC22F004605D4 /* RGDataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDataCenter.h; sourceTree = "<group>"; };
 		DA29843D175AC22F004605D4 /* RGDataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDataCenter.m; sourceTree = "<group>"; };
-		DA29843F175B2808004605D4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Storyboard.storyboard"; sourceTree = "<group>"; };
+		DA298440175DEF70004605D4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Storyboard.strings"; sourceTree = "<group>"; };
 		DA3A89A11718328E007D0004 /* RGChordsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGChordsController.h; sourceTree = "<group>"; };
 		DA3A89A21718328E007D0004 /* RGChordsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGChordsController.m; sourceTree = "<group>"; };
 		DA3A89A617184766007D0004 /* NSArray+SortBy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SortBy.h"; sourceTree = "<group>"; };
@@ -723,7 +723,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DA8E5565175786D900B23336 /* Base */,
-				DA29843F175B2808004605D4 /* zh-Hans */,
+				DA298440175DEF70004605D4 /* zh-Hans */,
 			);
 			name = Storyboard.storyboard;
 			sourceTree = "<group>";
