@@ -13,7 +13,6 @@
 
 @property (nonatomic) NSString *currentMusic;
 @property (nonatomic) AVAudioPlayer *currentPlayer;
-@property (nonatomic) NSString *musicType;
 
 + (id)sharedPlayerController;
 
@@ -22,12 +21,17 @@
 - (void)setupCurrentPlayerByMusic:(NSString*) music;
 - (void)setupAndPlayCurrentPlayerByMusicFile:(NSString*)musicFile;
 
-- (void)playFromMapByChordName:(NSString*)chord;
-- (void)setupMapByArray:(NSArray*)chordsArray;
+- (void)playByButtonTag:(NSInteger)tag;
 - (void)setupButtonChords;
 
 - (AVAudioPlayer*)musicPlayerByMusicFile:(NSString*)musicFile;
 
-- (void)resetMapFromChord:(NSString*)srcChord toChord:(NSString*)desChord;
+- (void)changeButtonPlayerByTag:(NSInteger)tag desChord:(NSString*)desChord;
+
+//- (void)releasePlayersInMap;
+- (void)releasePlayersArray;
+
+//- (void)recreatePlayersInMap;
+- (void)recreatePlayersArray;
 
 @end

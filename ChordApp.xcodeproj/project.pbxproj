@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA29843B1759B52A004605D4 /* RGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DA29843A1759B52A004605D4 /* RGHelper.m */; };
 		DA29843E175AC22F004605D4 /* RGDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA29843D175AC22F004605D4 /* RGDataCenter.m */; };
+		DA298443175EB889004605D4 /* RGAppUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = DA298442175EB888004605D4 /* RGAppUserDefaults.m */; };
 		DA3A89A31718328E007D0004 /* RGChordsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3A89A21718328E007D0004 /* RGChordsController.m */; };
 		DA3A89A817184766007D0004 /* NSArray+SortBy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3A89A717184766007D0004 /* NSArray+SortBy.m */; };
 		DA3A89DE1719C836007D0004 /* RGChordsMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3A89DD1719C836007D0004 /* RGChordsMediator.m */; };
@@ -36,9 +37,6 @@
 		DA8C0CFB16D895B900A6942E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0CF916D895B900A6942E /* Localizable.strings */; };
 		DA8C0CFD16D895B900A6942E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C0CFC16D895B900A6942E /* main.m */; };
 		DA8C0D0116D895B900A6942E /* RGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C0D0016D895B900A6942E /* RGAppDelegate.m */; };
-		DA8C0D0316D895B900A6942E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D0216D895B900A6942E /* Default.png */; };
-		DA8C0D0516D895B900A6942E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D0416D895B900A6942E /* Default@2x.png */; };
-		DA8C0D0716D895B900A6942E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D0616D895B900A6942E /* Default-568h@2x.png */; };
 		DA8C0D0A16D895B900A6942E /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D0816D895B900A6942E /* Storyboard.storyboard */; };
 		DA8C0D0F16D895B900A6942E /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D0E16D895B900A6942E /* first.png */; };
 		DA8C0D1116D895B900A6942E /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C0D1016D895B900A6942E /* first@2x.png */; };
@@ -90,6 +88,23 @@
 		DA8E55001755EDE300B23336 /* G7_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8E54E71755EDE300B23336 /* G7_chord.mp3 */; };
 		DA8E55011755EDE300B23336 /* G_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8E54E81755EDE300B23336 /* G_chord.mp3 */; };
 		DA8E55021755EDE300B23336 /* Gm_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA8E54E91755EDE300B23336 /* Gm_chord.mp3 */; };
+		DAE736B61760720600E83BBD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE736B51760720600E83BBD /* Icon.png */; };
+		DAE736B81760720C00E83BBD /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE736B71760720C00E83BBD /* Icon@2x.png */; };
+		DAE736BA1760EE8900E83BBD /* A7_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAE736B91760EE8900E83BBD /* A7_chord.mp3 */; };
+		DAE736BC1760EEA100E83BBD /* Ab7_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAE736BB1760EEA100E83BBD /* Ab7_chord.mp3 */; };
+		DAE736C51760EF1500E83BBD /* B7_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAE736C41760EF1500E83BBD /* B7_chord.mp3 */; };
+		DAE736C71760EF2100E83BBD /* Bb7_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAE736C61760EF2100E83BBD /* Bb7_chord.mp3 */; };
+		DAE736C91760EF4900E83BBD /* C7_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAE736C81760EF4900E83BBD /* C7_chord.mp3 */; };
+		DAE736CB1760EF5300E83BBD /* C#7_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAE736CA1760EF5300E83BBD /* C#7_chord.mp3 */; };
+		DAE736CD1760EF5E00E83BBD /* D7_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAE736CC1760EF5E00E83BBD /* D7_chord.mp3 */; };
+		DAE736CF1760EF7400E83BBD /* E7_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAE736CE1760EF7400E83BBD /* E7_chord.mp3 */; };
+		DAE736D11760EF8200E83BBD /* Eb7_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAE736D01760EF8200E83BBD /* Eb7_chord.mp3 */; };
+		DAE736D31760EF9200E83BBD /* F7_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAE736D21760EF9200E83BBD /* F7_chord.mp3 */; };
+		DAE736D51760EF9D00E83BBD /* F#7_chord.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAE736D41760EF9D00E83BBD /* F#7_chord.mp3 */; };
+		DAE736E617621C0E00E83BBD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAE736E817621C0E00E83BBD /* InfoPlist.strings */; };
+		DAE736EC1762ED4600E83BBD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE736EA1762EC1300E83BBD /* Default@2x.png */; };
+		DAE736EE1762ED8400E83BBD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE736ED1762ED8400E83BBD /* Default.png */; };
+		DAE736F01762ED9100E83BBD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE736EF1762ED9100E83BBD /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +113,8 @@
 		DA29843C175AC22F004605D4 /* RGDataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDataCenter.h; sourceTree = "<group>"; };
 		DA29843D175AC22F004605D4 /* RGDataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDataCenter.m; sourceTree = "<group>"; };
 		DA298440175DEF70004605D4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Storyboard.strings"; sourceTree = "<group>"; };
+		DA298441175EB888004605D4 /* RGAppUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGAppUserDefaults.h; sourceTree = "<group>"; };
+		DA298442175EB888004605D4 /* RGAppUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGAppUserDefaults.m; sourceTree = "<group>"; };
 		DA3A89A11718328E007D0004 /* RGChordsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGChordsController.h; sourceTree = "<group>"; };
 		DA3A89A21718328E007D0004 /* RGChordsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGChordsController.m; sourceTree = "<group>"; };
 		DA3A89A617184766007D0004 /* NSArray+SortBy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SortBy.h"; sourceTree = "<group>"; };
@@ -136,9 +153,6 @@
 		DA8C0CFE16D895B900A6942E /* ChordApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChordApp-Prefix.pch"; sourceTree = "<group>"; };
 		DA8C0CFF16D895B900A6942E /* RGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGAppDelegate.h; sourceTree = "<group>"; };
 		DA8C0D0016D895B900A6942E /* RGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RGAppDelegate.m; sourceTree = "<group>"; };
-		DA8C0D0216D895B900A6942E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		DA8C0D0416D895B900A6942E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		DA8C0D0616D895B900A6942E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DA8C0D0E16D895B900A6942E /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		DA8C0D1016D895B900A6942E /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		DA8C0D1516D895B900A6942E /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
@@ -196,6 +210,24 @@
 		DA8E54E91755EDE300B23336 /* Gm_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Gm_chord.mp3; sourceTree = "<group>"; };
 		DA8E5565175786D900B23336 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard.storyboard; sourceTree = "<group>"; };
 		DA8E55671757871900B23336 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DAE736B51760720600E83BBD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		DAE736B71760720C00E83BBD /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		DAE736B91760EE8900E83BBD /* A7_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = A7_chord.mp3; sourceTree = "<group>"; };
+		DAE736BB1760EEA100E83BBD /* Ab7_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ab7_chord.mp3; sourceTree = "<group>"; };
+		DAE736C41760EF1500E83BBD /* B7_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = B7_chord.mp3; sourceTree = "<group>"; };
+		DAE736C61760EF2100E83BBD /* Bb7_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bb7_chord.mp3; sourceTree = "<group>"; };
+		DAE736C81760EF4900E83BBD /* C7_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C7_chord.mp3; sourceTree = "<group>"; };
+		DAE736CA1760EF5300E83BBD /* C#7_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "C#7_chord.mp3"; sourceTree = "<group>"; };
+		DAE736CC1760EF5E00E83BBD /* D7_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = D7_chord.mp3; sourceTree = "<group>"; };
+		DAE736CE1760EF7400E83BBD /* E7_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = E7_chord.mp3; sourceTree = "<group>"; };
+		DAE736D01760EF8200E83BBD /* Eb7_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Eb7_chord.mp3; sourceTree = "<group>"; };
+		DAE736D21760EF9200E83BBD /* F7_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = F7_chord.mp3; sourceTree = "<group>"; };
+		DAE736D41760EF9D00E83BBD /* F#7_chord.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "F#7_chord.mp3"; sourceTree = "<group>"; };
+		DAE736E717621C0E00E83BBD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DAE736E917621C1400E83BBD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		DAE736EA1762EC1300E83BBD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		DAE736ED1762ED8400E83BBD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		DAE736EF1762ED9100E83BBD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +278,11 @@
 		DA8C0CE116D895B900A6942E = {
 			isa = PBXGroup;
 			children = (
+				DAE736EF1762ED9100E83BBD /* Default-568h@2x.png */,
+				DAE736ED1762ED8400E83BBD /* Default.png */,
+				DAE736EA1762EC1300E83BBD /* Default@2x.png */,
+				DAE736B71760720C00E83BBD /* Icon@2x.png */,
+				DAE736B51760720600E83BBD /* Icon.png */,
 				DA8E54C0174CC56200B23336 /* AudioToolbox.framework */,
 				DA8E54BE174CC55200B23336 /* CoreMIDI.framework */,
 				DA8E54BC174CC54A00B23336 /* CoreAudio.framework */,
@@ -279,8 +316,6 @@
 			children = (
 				DA8E54B4174908FE00B23336 /* code */,
 				DA8E54B11749089400B23336 /* sources */,
-				DA8C0CFF16D895B900A6942E /* RGAppDelegate.h */,
-				DA8C0D0016D895B900A6942E /* RGAppDelegate.m */,
 				DA8C0D0816D895B900A6942E /* Storyboard.storyboard */,
 				DA8C0CF716D895B900A6942E /* Supporting Files */,
 			);
@@ -295,9 +330,7 @@
 				DA8C0CF916D895B900A6942E /* Localizable.strings */,
 				DA8C0CFC16D895B900A6942E /* main.m */,
 				DA8C0CFE16D895B900A6942E /* ChordApp-Prefix.pch */,
-				DA8C0D0216D895B900A6942E /* Default.png */,
-				DA8C0D0416D895B900A6942E /* Default@2x.png */,
-				DA8C0D0616D895B900A6942E /* Default-568h@2x.png */,
+				DAE736E817621C0E00E83BBD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -349,6 +382,8 @@
 		DA8E54B4174908FE00B23336 /* code */ = {
 			isa = PBXGroup;
 			children = (
+				DA8C0CFF16D895B900A6942E /* RGAppDelegate.h */,
+				DA8C0D0016D895B900A6942E /* RGAppDelegate.m */,
 				DA73C4BD16F3F74F00D7F757 /* RGPlayerController.h */,
 				DA73C4BE16F3F74F00D7F757 /* RGPlayerController.m */,
 				DA3A89A617184766007D0004 /* NSArray+SortBy.h */,
@@ -362,6 +397,8 @@
 				DA29843A1759B52A004605D4 /* RGHelper.m */,
 				DA29843C175AC22F004605D4 /* RGDataCenter.h */,
 				DA29843D175AC22F004605D4 /* RGDataCenter.m */,
+				DA298441175EB888004605D4 /* RGAppUserDefaults.h */,
+				DA298442175EB888004605D4 /* RGAppUserDefaults.m */,
 			);
 			name = code;
 			sourceTree = "<group>";
@@ -441,6 +478,7 @@
 		DA8E54C51755EDE300B23336 /* A */ = {
 			isa = PBXGroup;
 			children = (
+				DAE736B91760EE8900E83BBD /* A7_chord.mp3 */,
 				DA8E54C61755EDE300B23336 /* A_chord.mp3 */,
 				DA8E54C71755EDE300B23336 /* Am_chord.mp3 */,
 			);
@@ -450,6 +488,7 @@
 		DA8E54C81755EDE300B23336 /* Ab */ = {
 			isa = PBXGroup;
 			children = (
+				DAE736BB1760EEA100E83BBD /* Ab7_chord.mp3 */,
 				DA8E54C91755EDE300B23336 /* Ab_chord.mp3 */,
 				DA8E54CA1755EDE300B23336 /* Abm_chord.mp3 */,
 			);
@@ -459,6 +498,7 @@
 		DA8E54CB1755EDE300B23336 /* B */ = {
 			isa = PBXGroup;
 			children = (
+				DAE736C41760EF1500E83BBD /* B7_chord.mp3 */,
 				DA8E54CC1755EDE300B23336 /* B_chord.mp3 */,
 				DA8E54CD1755EDE300B23336 /* Bm_chord.mp3 */,
 			);
@@ -468,6 +508,7 @@
 		DA8E54CE1755EDE300B23336 /* Bb */ = {
 			isa = PBXGroup;
 			children = (
+				DAE736C61760EF2100E83BBD /* Bb7_chord.mp3 */,
 				DA8E54CF1755EDE300B23336 /* Bb_chord.mp3 */,
 				DA8E54D01755EDE300B23336 /* Bbm_chord.mp3 */,
 			);
@@ -477,6 +518,7 @@
 		DA8E54D11755EDE300B23336 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				DAE736C81760EF4900E83BBD /* C7_chord.mp3 */,
 				DA8E54D21755EDE300B23336 /* C_chord.mp3 */,
 				DA8E54D31755EDE300B23336 /* Cm_chord.mp3 */,
 			);
@@ -486,6 +528,7 @@
 		DA8E54D41755EDE300B23336 /* C# */ = {
 			isa = PBXGroup;
 			children = (
+				DAE736CA1760EF5300E83BBD /* C#7_chord.mp3 */,
 				DA8E54D51755EDE300B23336 /* C#_chord.mp3 */,
 				DA8E54D61755EDE300B23336 /* C#m_chord.mp3 */,
 			);
@@ -495,6 +538,7 @@
 		DA8E54D71755EDE300B23336 /* D */ = {
 			isa = PBXGroup;
 			children = (
+				DAE736CC1760EF5E00E83BBD /* D7_chord.mp3 */,
 				DA8E54D81755EDE300B23336 /* D_chord.mp3 */,
 				DA8E54D91755EDE300B23336 /* Dm_chord.mp3 */,
 			);
@@ -504,6 +548,7 @@
 		DA8E54DA1755EDE300B23336 /* E */ = {
 			isa = PBXGroup;
 			children = (
+				DAE736CE1760EF7400E83BBD /* E7_chord.mp3 */,
 				DA8E54DB1755EDE300B23336 /* E_chord.mp3 */,
 				DA8E54DC1755EDE300B23336 /* Em_chord.mp3 */,
 			);
@@ -513,6 +558,7 @@
 		DA8E54DD1755EDE300B23336 /* Eb */ = {
 			isa = PBXGroup;
 			children = (
+				DAE736D01760EF8200E83BBD /* Eb7_chord.mp3 */,
 				DA8E54DE1755EDE300B23336 /* Eb_chord.mp3 */,
 				DA8E54DF1755EDE300B23336 /* Ebm_chord.mp3 */,
 			);
@@ -522,6 +568,7 @@
 		DA8E54E01755EDE300B23336 /* F */ = {
 			isa = PBXGroup;
 			children = (
+				DAE736D21760EF9200E83BBD /* F7_chord.mp3 */,
 				DA8E54E11755EDE300B23336 /* F_chord.mp3 */,
 				DA8E54E21755EDE300B23336 /* Fm_chord.mp3 */,
 			);
@@ -531,6 +578,7 @@
 		DA8E54E31755EDE300B23336 /* F# */ = {
 			isa = PBXGroup;
 			children = (
+				DAE736D41760EF9D00E83BBD /* F#7_chord.mp3 */,
 				DA8E54E41755EDE300B23336 /* F#_chord.mp3 */,
 				DA8E54E51755EDE300B23336 /* F#m_chord.mp3 */,
 			);
@@ -603,9 +651,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8C0CFB16D895B900A6942E /* Localizable.strings in Resources */,
-				DA8C0D0316D895B900A6942E /* Default.png in Resources */,
-				DA8C0D0516D895B900A6942E /* Default@2x.png in Resources */,
-				DA8C0D0716D895B900A6942E /* Default-568h@2x.png in Resources */,
 				DA8C0D0A16D895B900A6942E /* Storyboard.storyboard in Resources */,
 				DA8C0D0F16D895B900A6942E /* first.png in Resources */,
 				DA8C0D1116D895B900A6942E /* first@2x.png in Resources */,
@@ -663,6 +708,23 @@
 				DA8E55001755EDE300B23336 /* G7_chord.mp3 in Resources */,
 				DA8E55011755EDE300B23336 /* G_chord.mp3 in Resources */,
 				DA8E55021755EDE300B23336 /* Gm_chord.mp3 in Resources */,
+				DAE736B61760720600E83BBD /* Icon.png in Resources */,
+				DAE736B81760720C00E83BBD /* Icon@2x.png in Resources */,
+				DAE736BA1760EE8900E83BBD /* A7_chord.mp3 in Resources */,
+				DAE736BC1760EEA100E83BBD /* Ab7_chord.mp3 in Resources */,
+				DAE736C51760EF1500E83BBD /* B7_chord.mp3 in Resources */,
+				DAE736C71760EF2100E83BBD /* Bb7_chord.mp3 in Resources */,
+				DAE736C91760EF4900E83BBD /* C7_chord.mp3 in Resources */,
+				DAE736CB1760EF5300E83BBD /* C#7_chord.mp3 in Resources */,
+				DAE736CD1760EF5E00E83BBD /* D7_chord.mp3 in Resources */,
+				DAE736CF1760EF7400E83BBD /* E7_chord.mp3 in Resources */,
+				DAE736D11760EF8200E83BBD /* Eb7_chord.mp3 in Resources */,
+				DAE736D31760EF9200E83BBD /* F7_chord.mp3 in Resources */,
+				DAE736D51760EF9D00E83BBD /* F#7_chord.mp3 in Resources */,
+				DAE736E617621C0E00E83BBD /* InfoPlist.strings in Resources */,
+				DAE736EC1762ED4600E83BBD /* Default@2x.png in Resources */,
+				DAE736EE1762ED8400E83BBD /* Default.png in Resources */,
+				DAE736F01762ED9100E83BBD /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,7 +742,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -704,6 +766,7 @@
 				DA8E54BB174CC45F00B23336 /* RGMidiViewController.m in Sources */,
 				DA29843B1759B52A004605D4 /* RGHelper.m in Sources */,
 				DA29843E175AC22F004605D4 /* RGDataCenter.m in Sources */,
+				DA298443175EB889004605D4 /* RGAppUserDefaults.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,6 +791,15 @@
 			name = Storyboard.storyboard;
 			sourceTree = "<group>";
 		};
+		DAE736E817621C0E00E83BBD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAE736E717621C0E00E83BBD /* en */,
+				DAE736E917621C1400E83BBD /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -741,7 +813,7 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lin Lin (R3P99MGHK5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lin Lin (BQMQEKUC5Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -757,7 +829,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "115093D7-14E4-4CE4-9249-2D49F4981A0B";
+				PROVISIONING_PROFILE = "D210901F-A756-4AA0-A992-C76A9C9B9D0D";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -772,7 +844,7 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lin Lin (R3P99MGHK5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lin Lin (BQMQEKUC5Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -781,7 +853,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "115093D7-14E4-4CE4-9249-2D49F4981A0B";
+				PROVISIONING_PROFILE = "D210901F-A756-4AA0-A992-C76A9C9B9D0D";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -800,6 +872,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "115093D7-14E4-4CE4-9249-2D49F4981A0B";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "115093D7-14E4-4CE4-9249-2D49F4981A0B";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -817,6 +890,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "115093D7-14E4-4CE4-9249-2D49F4981A0B";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "115093D7-14E4-4CE4-9249-2D49F4981A0B";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

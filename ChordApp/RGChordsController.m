@@ -11,6 +11,7 @@
 #import "RGChordsMediator.h"
 #import "RGPlayerController.h"
 #import "RGHelper.h"
+#import "RGAppUserDefaults.h"
 
 #import "RGConstants.h"
 
@@ -25,6 +26,8 @@
 
 @implementation RGChordsController
 
+#pragma mark - Super Methods
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,15 +37,9 @@
     
     self.isEditing = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor blackColor]];
     
-    NSArray *chordsArray = [RGHelper objectFromUserDefaultsByKey:kSettingChordsArray];
-    if (chordsArray == nil) {
-        // Default array.
-        chordsArray = @[@"C", @"F", @"G", @"Am", @"Em", @"Dm", @"G7", @"D", @"E"];
-        [RGHelper setUserDefaultsObject:chordsArray byKey:kSettingChordsArray];
-    }
-    
-    [self setupButtonsTextWithChordsArray:chordsArray];
+    [self setupButtonsTextWithChordsArray:[RGAppUserDefaults chordsArray]];
     
     _playerController = [RGPlayerController sharedPlayerController];
     [_playerController setupButtonChords];

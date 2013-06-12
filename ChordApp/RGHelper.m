@@ -42,7 +42,7 @@
 }
 
 + (void)showOkAlertWithTitle:(NSString*)title message:(NSString*)msg {
-    [[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+    [[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 @end

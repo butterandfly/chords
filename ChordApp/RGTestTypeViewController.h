@@ -9,12 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "RGPrepareTestController.h"
 
+// RGTestTypeViewController shows the config of test category.
 @interface RGTestTypeViewController : UITableViewController
 
-//@property (strong, nonatomic) NSIndexPath *lastIndex;
 @property (assign, nonatomic) NSInteger questType;
 @property (weak, nonatomic) RGPrepareTestController* configDelegate;
-
 @property (strong, nonatomic) NSMutableArray *categoryArray;
 
 @end

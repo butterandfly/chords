@@ -30,6 +30,14 @@
 
 - (NSString*)rightOrWrongMessageByIsCorrect:(BOOL)isCorrect;
 
+- (BOOL)checkHaveAnswered;
+
+- (BOOL)isTheLastQuest;
+
+- (void)disappearStuff;
+
+- (void)setupFinishButton;
+
 
 @end
 
@@ -54,13 +62,12 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    //
+    UIViewController *des = [segue destinationViewController];
+    
     if ([[segue identifier] isEqualToString:@"finishTest"]) {
-        UIViewController *des = [segue destinationViewController];
         NSNumber *score = [NSNumber numberWithInteger:_quester.score];
         [des setValue:score forKey:@"score"];
         [des setValue:self.delegate forKey:@"delegate"];
@@ -70,53 +77,35 @@
 #pragma mark - IBAction methods
 
 - (IBAction)next:(id)sender {
-    // check if had answered quest
-    if (!_quester.haveAnswered) {
-        NSString* tipMsg = NSLocalizedString(@"PLEASESELECT", nil);
-        [[[UIAlertView alloc] initWithTitle:tipMsg message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    if (![self checkHaveAnswered]) {
         return;
     }
     
-    // stop music
     [_pc stopCurrentMusic];
     
-    // if it's the end of the text
-    if (_quester.currentQuestNum + 1 == _quester.questSum) {
+    if ([self isTheLastQuest]) {
         [self performSegueWithIdentifier:@"finishTest" sender:self];
         return;
     }
     
-    // animation
     [UIView animateWithDuration:1.0 animations:^{
-        // disappear all the things
-        [self setAlaph4AnswerButtons:0];
-        self.answerLabel.alpha = 0;
-        self.isCorrectLabel.alpha = 0;
+        [self disappearStuff];
         
     } completion:^(BOOL finished) {
-        // step quest number, then init next quest
         _quester.currentQuestNum++;
-        // init next question
+        // Next question.
         [_quester setupAQuest];
-        
-        // setup ui
-        self.answerLabel.alpha = 1;
-        self.isCorrectLabel.alpha = 1;
         [self initQuestUI];
         
-        // show all the things
         [UIView animateWithDuration:1.5 animations:^{
-            // show all answer buttons
+            // Show all answer buttons.
             [self setAlaph4AnswerButtons:1];
-            // check if it's the last quest
-            if (_quester.currentQuestNum + 1 == _quester.questSum) {
-                [self.nextButton setTitle:NSLocalizedString(@"FINISH", nil) forState:UIControlStateNormal];
+            if ([self isTheLastQuest]) {
+                [self setupFinishButton];
             }
             
         } completion:^(BOOL finished) {
-            // play music
-            [_pc setupCurrentPlayerByMusic:_quester.currentMusic];
-            [_pc playCurrentMusic];
+            [_pc setupAndPlayCurrentPlayerByMusicFile:_quester.currentMusic];
         }];
     }];
     
@@ -130,9 +119,9 @@
 // cancle button
 - (IBAction)cancleTest:(id)sender {
     [_pc stopCurrentMusic];
-    if (self.delegate) {
-        [self.delegate dismissViewControllerAnimated:YES completion:nil];
-    }
+//    if (self.delegate) {
+    [self.delegate dismissViewControllerAnimated:YES completion:nil];
+//    }
 }
 
 // answer button
@@ -158,7 +147,9 @@
 
 - (void)initQuestUI {
     self.answerLabel.hidden = YES;
+    self.answerLabel.alpha = 1;
     self.isCorrectLabel.hidden = YES;
+    self.isCorrectLabel.alpha = 1;
     self.questTestLabel.text = _quester.questText;
     [self setupAnswerButtons];
 }
@@ -211,6 +202,34 @@
         return NSLocalizedString(@"CORRECT", nil);
     }
     return NSLocalizedString(@"WRONG", nil);
+}
+
+- (BOOL)checkHaveAnswered {
+    if (!_quester.haveAnswered) {
+        NSString* tipMsg = NSLocalizedString(@"PLEASESELECT", nil);
+        [RGHelper showOkAlertWithTitle:tipMsg message:nil];
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)isTheLastQuest {
+    if (_quester.currentQuestNum + 1 == _quester.questSum) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)disappearStuff {
+    // disappear all the things
+    [self setAlaph4AnswerButtons:0];
+    self.answerLabel.alpha = 0;
+    self.isCorrectLabel.alpha = 0;
+}
+
+- (void)setupFinishButton {
+    [self.nextButton setTitle:NSLocalizedString(@"FINISH", nil) forState:UIControlStateNormal];
 }
 
 @end

@@ -1,7 +1,6 @@
 /* Localized versions of Info.plist keys */
 
 // ***** RGChordsController *****
-
 "EDITTIPS" = "Click to change";
 "CHORDS" = "Chords";
 

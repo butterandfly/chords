@@ -10,6 +10,8 @@
 
 @interface RGFinishTestController ()
 
+- (NSInteger)normalScore;
+
 @end
 
 @implementation RGFinishTestController
@@ -20,8 +22,7 @@
 {
     [super viewDidLoad];
     
-    NSInteger normalScore =  [self.score integerValue] * 10;
-    self.scoreMessage.text = [NSString stringWithFormat:NSLocalizedString(@"YOURSCORE", nil), normalScore];
+    self.scoreMessage.text = [NSString stringWithFormat:NSLocalizedString(@"YOURSCORE", nil), [self normalScore]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,4 +33,9 @@
 - (IBAction)finish:(id)sender {
     [self.delegate dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (NSInteger)normalScore {
+    return [self.score integerValue] * 10;
+}
+
 @end

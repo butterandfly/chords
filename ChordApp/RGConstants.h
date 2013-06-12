@@ -33,4 +33,7 @@ typedef enum {
 #define kPlistAllChords @"allChords"
 #define kPlistQuestCatesText @"questCatesText"
 
+// File Type
+#define kFileTypeMp3 @"mp3"
+
 #endif

@@ -12,7 +12,6 @@
 #import "RGConstants.h"
 
 @interface RGTestTypeViewController () {
-    
 }
 
 - (void)checkTheCellAtIndexPath:(NSIndexPath*)indexPath;
@@ -70,7 +69,6 @@
     static NSString *CellIdentifier = @"CategoryCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
     cell.textLabel.text = [self.categoryArray objectAtIndex:[indexPath row]];;
     
     return cell;
@@ -82,7 +80,6 @@
 {
     
     // Set.
-//    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [RGHelper setUserDefaultsObject:[NSNumber numberWithInteger:indexPath.row] byKey:kSettingQuestCategory];
     [self.configDelegate setupQuestTypeByKey:indexPath.row];
     // Pop.

@@ -10,6 +10,7 @@
 #import "RGPlayerController.h"
 #import "RGHelper.h"
 #import "RGConstants.h"
+#import "RGAppUserDefaults.h"
 
 @interface RGChordsMediator () {
     
@@ -56,12 +57,11 @@
     UIButton *btn = (UIButton*)[self.chordsController.view viewWithTag:tag];
     [btn setTitle:desChord forState:UIControlStateNormal];
     
-    // Save.
-    NSMutableArray *chordsArray = [NSMutableArray arrayWithArray:[RGHelper objectFromUserDefaultsByKey:kSettingChordsArray]];
-    chordsArray[tag] = desChord;
-    [RGHelper setUserDefaultsObject:chordsArray byKey:kSettingChordsArray];
+    NSMutableArray *chordsArray = [NSMutableArray arrayWithArray:[RGAppUserDefaults chordsArray]];
+    chordsArray[tag-1] = desChord;
+    [RGAppUserDefaults setChordsArray:chordsArray];
     
-    [[RGPlayerController sharedPlayerController] resetMapFromChord:srcChord toChord:desChord];
+    [[RGPlayerController sharedPlayerController] changeButtonPlayerByTag:tag desChord:desChord];
 }
 
 #pragma mark - Privated
@@ -72,23 +72,20 @@
 
 - (void)playChord:(id)sender {
     UIButton *btn = (UIButton*)sender;
-    NSString *selectedChord = btn.titleLabel.text;
+    NSInteger tag = [btn tag];
     
-    [[RGPlayerController sharedPlayerController] playFromMapByChordName:selectedChord];
+    [[RGPlayerController sharedPlayerController] playByButtonTag:tag];
 }
 
 - (void)enterEditing {
-    [RGHelper logDashWith:@"enterEditing"];
-    NSString *title = NSLocalizedString(@"EDITTIPS", nil);
-    self.chordsController.navigationItem.title = title;
+    NSString *prompt = NSLocalizedString(@"EDITTIPS", nil);
+    self.chordsController.navigationItem.prompt = prompt;
     self.chordsController.navigationItem.rightBarButtonItem.tintColor = [UIColor blueColor];
     self.chordsController.isEditing = YES;
 }
 
 - (void)leaveEditing {
-    [RGHelper logDashWith:@"leaveEditing"];
-    NSString *title = NSLocalizedString(@"CHORDS", nil);
-    self.chordsController.navigationItem.title = title;
+    self.chordsController.navigationItem.prompt = nil;
     self.chordsController.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
     self.chordsController.isEditing = NO;
 }

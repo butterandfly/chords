@@ -9,10 +9,14 @@
 #import "RGChordSettingController.h"
 #import "RGDataCenter.h"
 #import "RGConstants.h"
+#import "RGAppUserDefaults.h"
 
 @interface RGChordSettingController () {
-    NSMutableArray *_chordsArray;
+    NSArray *_musicKey;
+    NSDictionary *_chordsDict;
 }
+
+- (NSString*)chordByIndexPath:(NSIndexPath*)indexPath;
 
 @end
 
@@ -22,23 +26,9 @@
 {
     [super viewDidLoad];
     
-    _chordsArray = [[NSMutableArray alloc] init];
+    _musicKey = @[@"C", @"C#", @"D", @"Eb", @"E", @"F", @"F#", @"G", @"Ab", @"A", @"Bb", @"B"];
+    _chordsDict = [[RGDataCenter sharedDataCenter] objectFromChordsDataByKey:kPlistAllChords];
     
-    // !Not working! Set up the nav button.
-//    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] init];
-//    backButton.title = @"返回";
-//    self.navigationItem.leftBarButtonItem = backButton;
-//    [[self navigationItem].leftBarButtonItem setTitle:@"返回"];
-
-    // * Set up the chords array.
-    NSDictionary *allChordsDic = [[RGDataCenter sharedDataCenter] objectFromChordsDataByKey:kPlistAllChords];
-    // Sort the array from "c" to "b".
-    NSArray *musicKey = @[@"C", @"C#", @"D", @"Eb", @"E", @"F", @"F#", @"G", @"Ab", @"A", @"Bb", @"B"];
-    for (NSString *key in musicKey) {
-        for (NSString *chordName in [allChordsDic objectForKey:key]) {
-            [_chordsArray addObject:chordName];
-        }
-    }
 
 }
 
@@ -51,21 +41,28 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [_musicKey count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_chordsArray count];
+    NSArray *chords4CurrentKey = [_chordsDict objectForKey:[_musicKey objectAtIndex:section]];
+    return [chords4CurrentKey count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [_musicKey objectAtIndex:section];
+}
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return _musicKey;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ChordCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    NSString *chordName = _chordsArray[indexPath.row];
-    cell.textLabel.text = chordName;
+   
+    cell.textLabel.text = [self chordByIndexPath:indexPath];
     
     return cell;
 }
@@ -74,10 +71,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *desChord = [_chordsArray objectAtIndex:[indexPath row]];
+    NSString *desChord = [self chordByIndexPath:indexPath];
     [[self chordsMediator] changeChordByTag:self.buttonTag srcChord:self.buttonText desChord:desChord];
     
     [[self navigationController] popViewControllerAnimated:YES];
+}
+
+#pragma mark - Privated
+
+- (NSString *)chordByIndexPath:(NSIndexPath *)indexPath {
+    NSArray *chords4CurrentKey = [_chordsDict objectForKey:[_musicKey objectAtIndex:indexPath.section]];
+    NSString *chordName = chords4CurrentKey[indexPath.row];
+    return chordName;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// RGFinishTestController shows the test result.
 @interface RGFinishTestController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *scoreMessage;
 @property (nonatomic) NSNumber *score;

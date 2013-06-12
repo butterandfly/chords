@@ -7,9 +7,13 @@
 //
 
 #import "RGPlayerController.h"
+#import "RGAppUserDefaults.h"
+#import "RGConstants.h"
+#import "RGHelper.h"
 
 @interface RGPlayerController () {
-    NSMutableDictionary *_playMap;
+//    NSMutableDictionary *_playMap;
+    NSMutableArray *_playerArray;
 }
 
 @end
@@ -29,9 +33,6 @@
 - (id)init {
     self = [super init];
     if (self) {
-        // init
-        _musicType = @"mp3";
-//        _playMap = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -50,7 +51,7 @@
 }
 
 - (void)stopCurrentMusic {
-    if (self.currentPlayer != nil && self.currentPlayer.playing) {
+    if (self.currentPlayer) {
         [self.currentPlayer stop];
     }
 }
@@ -59,7 +60,6 @@
     self.currentMusic = music;
     
     self.currentPlayer = [self musicPlayerByMusicFile:music];
-    self.currentPlayer.volume = 1;
 }
 
 - (void)setupAndPlayCurrentPlayerByMusicFile:(NSString *)musicFile {
@@ -68,74 +68,48 @@
 }
 
 - (void)setupButtonChords {
-    //
-    _playMap = [[NSMutableDictionary alloc] init];
+    _playerArray = [[NSMutableArray alloc] init];
     
-    // * Get chords array from user defaulst.
-    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
-    NSArray *chordsArray = [settings objectForKey:@"chords"];
-    // First time to run the app.
-    if (chordsArray == nil) {
-        // Setup array.
-        chordsArray = @[@"C", @"F", @"G", @"Am", @"Em", @"Dm", @"G7", @"D", @"E"];
-        [settings setObject:chordsArray forKey:@"chords"];
+    NSArray *chordsArray = [RGAppUserDefaults chordsArray];
+    int count = [chordsArray count];
+    for (int i = 0; i < count; i++) {
+        AVAudioPlayer *player = [self createAChordPlayerByChord:[chordsArray objectAtIndex:i]];
+        _playerArray[i] = player;
     }
-    
-    [self setupMapByArray:chordsArray];
 }
 
-- (void)setupMapByArray:(NSArray *)chordsArray {
-    if ([chordsArray count] != 9) {
-        //
-        return;
-    }
-    
-    // Loop the array.
-    for (NSString *chord in chordsArray) {
-        // setup player
-        AVAudioPlayer *player = [self createAChordPlayerByChord:chord];
-        player.volume = 1;
-        [_playMap setObject:player forKey:chord];
-    }
-    
-//    NSLog(@"setup finished...\nthe map is: %@", _playMap);
-}
-
-- (void)playFromMapByChordName:(NSString *)chord {
-    AVAudioPlayer *player = [_playMap objectForKey:chord];
-    if (player == nil) {
-        return;
-    }
+- (void)playByButtonTag:(NSInteger)tag {
+    AVAudioPlayer *player = [_playerArray objectAtIndex:(tag-1)];
     
     self.currentPlayer = player;
-    self.currentMusic = chord;
     [self playCurrentMusic];
-//    [self stopCurrentMusic];
-//    [self.currentPlayer setCurrentTime:0];
-//    [self.currentPlayer play];
 }
 
-- (void)resetMapFromChord:(NSString*)srcChord toChord:(NSString *)desChord {
-    [_playMap removeObjectForKey:srcChord];
-    
+- (void)changeButtonPlayerByTag:(NSInteger)tag desChord:(NSString *)desChord {
     AVAudioPlayer *player = [self createAChordPlayerByChord:desChord];
-    [_playMap setObject:player forKey:desChord];
+    _playerArray[(tag - 1)] = player;
 }
 
 - (AVAudioPlayer*)createAChordPlayerByChord:(NSString*)chord {
     NSString *chordName = [NSString stringWithFormat:@"%@_chord", chord];
-    NSString *musicPath = [[NSBundle mainBundle] pathForResource:chordName ofType:self.musicType];
-    NSLog(@"now we get the path: %@", musicPath);
-    NSURL *musicUrl = [[NSURL alloc] initFileURLWithPath:musicPath];
-    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:musicUrl error:nil];
-    return player;
+    
+    return [self musicPlayerByMusicFile:chordName];
 }
 
 - (AVAudioPlayer *)musicPlayerByMusicFile:(NSString *)musicFile {
-    NSString *musicPath = [[NSBundle mainBundle] pathForResource:musicFile ofType:self.musicType];
+    NSString *musicPath = [[NSBundle mainBundle] pathForResource:musicFile ofType:kFileTypeMp3];
     NSURL *musicUrl = [[NSURL alloc] initFileURLWithPath:musicPath];
-    
-    return [[AVAudioPlayer alloc] initWithContentsOfURL:musicUrl error:nil];
+    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:musicUrl error:nil];
+    player.volume = 1;
+    return player;
+}
+
+- (void)releasePlayersArray {
+    _playerArray = nil;
+}
+
+- (void)recreatePlayersArray {
+    [self setupButtonChords];
 }
 
 @end

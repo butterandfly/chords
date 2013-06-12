@@ -34,7 +34,7 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     NSLog(@"release resources");
     
-    // release playercontroller's resources
+    [_pc releasePlayersArray];
     _pc.currentPlayer = nil;
     
 }
@@ -43,7 +43,8 @@
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     NSLog(@"load resources");
-    // load the resources we need
+    
+    [_pc recreatePlayersArray];
     [_pc setupCurrentPlayerByMusic:nil];
 }
 
